@@ -1,0 +1,42 @@
+
+## Create By Steve Yang, 2012-12-18
+## 通过wsTax和T2 schema XSD文件可以使用JAXB和XMLBeans两种方式转换为Java类, 比较两种方式的不同及优劣
+## 
+
+## 第一步, 根据Shema文件(XSD 文件)生成Java类
+一. T2 XDS文件: wstax3_t2.xsd
+    1. XMLBeans
+       (1). 命令: scomp -d ./xmlbeans/classes -src ./xmlbeans/src -out T2A03_xmlbeans.jar wstax3_t2.xsd
+                                 生成class文件,java文件以及jar包
+    2. JAXB
+       (1). 命令: xjc -d ./jaxb/src -p com.hp.wwops.ecommerce.service.entity.wstax3.jaxb wstax3_t2.xsd
+                                仅生成java类文件
+
+二. wsTax
+         需要注意的是, wstax有两种不同的XSD:
+          一种适用于RPC/encoding方式的WSDL --> 根据现有的WSDL截取获得wstax3.xsd 
+          一种适用于Doc/literal方式的WSDL  --> 根据CXF发布的WSDL截取获得wstax-new.xsd
+<1>. wsTax RPC/encoding格式, wstax3.xsd
+     1. XMLBeans
+        (1). 命令: scomp -d ./xmlbeans/classes -src ./xmlbeans/src -out wstax3_xmlbeans.jar wstax3-new.xsd
+                                 生成class文件,java文件以及jar包
+     2. JAXB
+     	(1). 命令: xjc -d ./jaxb/src -p com.hp.wwops.ecommerce.service.entity.wstax3.jaxb wstax3.xsd
+                                仅生成java类文件
+     
+     
+<2>. wsTax RPC/encoding格式, wstax3_new.xsd
+	 1. XMLBeans
+        (1). 命令: scomp -d ./xmlbeans/classes -src ./xmlbeans/src -out wstax3-new_xmlbeans.jar wstax3-new.xsd
+                                 生成class文件,java文件以及jar包
+     2. JAXB
+     	(1). 命令: xjc -d ./jaxb/src -p com.hp.wwops.ecommerce.service.entity.wstax3_new.jaxb wstax3-new.xsd
+                                仅生成java类文件
+
+## 第二步, 测试XMLBeans和JAXB的Java对象和XML文件转换方式 ---> 仅挑选wstax3.xsd为例
+## 参见项目wstaxT2中的Java包: 
+## JAXB生成的Java Data Model类: com.hp.wwops.ecommerce.service.entity.wstax3.jaxb,
+##     测试类: com.hp.wwops.ecommerce.service.entity.wstax3.jaxb.WstaxJAXBTest.java
+## XMLBeans生成的Java Data Model类: 在 wstax3_xmlbeans.jar中 
+##     测试类: com.hp.wwops.ecommerce.service.entity.wstax3.WstaxXMLBeansTest.java
+三, 

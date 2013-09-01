@@ -1,0 +1,98 @@
+
+## Create By Steve Yang, 2013-08-22
+## 以下XML数据是单元测试的输出测试结果
+
+1. Customer对象, Customer类上没有加注解@XmlRootElement,所以元素对应都是采用默认处理
+<?xml version="1.0" encoding="UTF-8"?>
+<customer height="178.2" exist="true">
+	<name>Jack</name>
+	<house-address>
+		<post-code>010000</post-code>
+		<province>北京</province>
+		<address>海淀</address>
+		<identifier>1</identifier>
+		<country>中国</country>
+		<city>北京市</city>
+	</house-address>
+	<birthday>1990-03-22T00:23:23.000+08:00</birthday>
+	<sports>football</sports>
+	<sports>basketball</sports>
+	<sports>USA</sports>
+	<sports>China</sports>
+</customer>
+
+2. Customer list, 由于Customer没有添加XmlRootElement,所以元素对应都是默认处理
+<?xml version="1.0" encoding="UTF-8"?>
+<array-list>
+	<customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://java.sun.com" height="178.2" exist="true" xsi:type="java:com.hp.it.wstax.binding.model.Customer">
+		<name>Jack</name>
+		<house-address>
+			<post-code>010000</post-code>
+			<province>北京</province>
+			<address>海淀</address>
+			<identifier>1</identifier>
+			<country>中国</country>
+			<city>北京市</city>
+		</house-address>
+		<birthday>1990-03-22T00:23:23.000+08:00</birthday>
+		<list xsi:type="java:java.lang.Integer">2</list>
+		<list xsi:type="java:java.lang.Integer">5</list>
+		<sports>football</sports>
+		<sports>basketball</sports>
+		<sports>USA</sports>
+		<sports>China</sports>
+	</customer>
+	<customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://java.sun.com" height="184.2" exist="false" xsi:type="java:com.hp.it.wstax.binding.model.Customer">
+		<name>Nash</name>
+		<house-address>
+			<post-code>032000</post-code>
+			<province>天津市</province>
+			<address>滨海新区</address>
+			<identifier>2</identifier>
+			<country>中国</country>
+			<city>天津市</city>
+		</house-address>
+		<sports>Football</sports>
+		<sports>Basketball</sports>
+		<sports>Tennis</sports>
+		<sports>Badminton</sports>
+	</customer>
+</array-list>
+
+3. Article --> Have annotation
+   3.1 Non-use Mapping  --> 可以确定的是Castor在将Java/XML互相转换时, 没有使用相关注解
+   	    <?xml version="1.0" encoding="UTF-8"?>
+		<article id="1">
+			<body>Body</body>
+			<publish-date>2013-08-22T13:31:47.038+08:00</publish-date>
+			<summary>This is the way the world ends: with a nanosecond of computer error in a Defense Department laboratory and a million casual contacts that form the links in a chain letter of death. &#xd;
+		 And here is the bleak new world of the day after: a world stripped of its institutions and emptied of 99 percent of its people. A world in which a handful of panicky survivors choose sides </summary>
+			<author>
+				<last-name>King</last-name>
+				<first-name>Steve</first-name>
+			</author>
+			<title>The Stand</title>
+			<comments>You know what’s really scary? Getting sick while you’re reading the first part of The Stand</comments>
+			<comments>Whatever I say below, I still have non-gut-wrenching memories of reading this</comments>
+		</article>
+   	   
+   3.2 Use Mapping
+   		<?xml version="1.0" encoding="UTF-8"?>
+		<article>
+			<article id="1">
+				<title>The Stand</title>
+			</article>
+			<author>
+				<first_name>Steve</first_name>
+				<last_name>King</last_name>
+			</author>
+			<article>
+				<summary>This is the way the world ends: with a nanosecond of computer error in a Defense Department laboratory and a million casual contacts that form the links in a chain letter of death. &#xd;
+		 And here is the bleak new world of the day after: a world stripped of its institutions and emptied of 99 percent of its people. A world in which a handful of panicky survivors choose sides </summary>
+				<body>Body</body>
+				<publish_date>2013-08-22T13:39:34.604+08:00</publish_date>
+				<comments>You know what’s really scary? Getting sick while you’re reading the first part of The Stand</comments>
+				<comments>Whatever I say below, I still have non-gut-wrenching memories of reading this</comments>
+			</article>
+		</article>
+   

@@ -1,0 +1,3232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by NICHOLAS DOWNES (HEWLETT PACKARD) -->
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by litao (HP/Reza Wajih) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stns="java:com.hp.wwops.ecommerce.service.entity.wstax3.xmlbean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="java:com.hp.wwops.ecommerce.service.entity.wstax3.xmlbean" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+	<xsd:element name="WSTAX">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="calling_application" type="stns:calling_applicationType"/>
+				<xsd:element name="authentication" type="stns:authenticationType"/>
+				<xsd:element name="event" type="stns:eventType"/>
+				<xsd:element name="transaction_date_time" type="stns:transaction_date_timeType" minOccurs="0"/>
+				<xsd:element name="t_square_document">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="document_header" type="stns:document_headerType"/>
+							<xsd:element name="document_line" type="stns:document_lineType" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="calculation_brid" nillable="true">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="40"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:complexType name="customerLineType">
+		<xsd:sequence>
+			<xsd:element name="ship_to" type="stns:ship_toType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="discount_amountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="disc_amount_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="disc_amount_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="discount_amountLineType">
+		<xsd:sequence>
+			<xsd:element name="disc_amnt_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="disc_amnt_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="exempt_amount_doc" type="stns:decimal_or_empty" nillable="true"/>
+	<xsd:element name="exempt_amount_loc" type="stns:decimal_or_empty" nillable="true"/>
+	<xsd:complexType name="manufacturing_costType">
+		<xsd:sequence>
+			<xsd:element name="manufacture_cost_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="manufacture_cost_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IC_priceType">
+		<xsd:sequence>
+			<xsd:element name="ic_price_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="ic_price_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="financial_documentType">
+		<xsd:sequence>
+			<xsd:element name="finance_doc_no" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="finance_doc_date" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="gross_amountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="gross_amount_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gross_amount_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="customerHeaderType">
+		<xsd:sequence>
+			<xsd:element name="mycomp_if_cust" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_name" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="60"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element ref="stns:calculation_brid" minOccurs="0"/>
+			<xsd:element name="purchase_orga" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_add" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_eco_activ" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_tax_exemption" type="stns:cust_tax_exemptionType" nillable="true" minOccurs="0"/>
+			<xsd:element name="cust_registration" type="stns:cust_registrationType" nillable="true" minOccurs="0"/>
+			<xsd:element name="special_tax_rates" type="stns:special_tax_ratesCustType" nillable="true" minOccurs="0"/>
+			<xsd:element name="cust_tax_registration" type="stns:cust_tax_registrationType" nillable="true" minOccurs="0"/>
+			<xsd:element name="invoice_sent_to_address" type="stns:invoice_sent_to_addressType" nillable="true" minOccurs="0"/>
+			<xsd:element name="sold_to_address" type="stns:sold_to_addressType" nillable="true" minOccurs="0"/>
+			<xsd:element name="cust_establishment_address" type="stns:cust_establishment_addressType" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="gross_amountLineType">
+		<xsd:sequence>
+			<xsd:element name="gross_amnt_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gross_amnt_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="insurance_amountType">
+		<xsd:sequence>
+			<xsd:element name="insure_amnt_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="insure_amnt_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="inv_text" nillable="true">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="1025"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:complexType name="messagesType">
+		<xsd:sequence>
+			<xsd:element name="code" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="msg_text" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1024"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="category" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="severity" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="location" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="net_amountType">
+		<xsd:sequence>
+			<xsd:element name="net_amount_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="net_amount_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="other_amountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="other_amt_txh_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="other_amt_txh_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="other_amountLineType">
+		<xsd:sequence>
+			<xsd:element name="other_amount_loc" type="stns:decimal_or_empty" minOccurs="0"/>
+			<xsd:element name="other_amount_doc" type="stns:decimal_or_empty" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="reserved_fieldsType">
+		<xsd:sequence>
+			<xsd:element name="resv_field1" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="resv_field2" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="resv_field3" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="resv_field4" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="resv_field5" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="tax_amount_doc" type="stns:decimal_or_empty" nillable="true"/>
+	<xsd:element name="tax_amount_loc" type="stns:decimal_or_empty" nillable="true"/>
+	<xsd:element name="tax_level" nillable="true">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="tax_level_value" nillable="true">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="40"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:complexType name="transactionType">
+		<xsd:sequence>
+			<xsd:element ref="stns:trans_type" minOccurs="0"/>
+			<xsd:element name="credit_indicator" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="acc_trans" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="trans_indicator" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="doc_cancel" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="trans_sub_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="transaction_taxType">
+		<xsd:sequence>
+			<xsd:element ref="stns:tax_amount_loc" minOccurs="0"/>
+			<xsd:element ref="stns:tax_amount_doc" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ship_toType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_shipto" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_to_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="trans_type" nillable="true">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="2"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:complexType name="certificate_detailsCustType">
+		<xsd:sequence>
+			<xsd:element name="customer_cert_num" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_cert_eff" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="customer_cert_exp" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="customer_cert_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_cert_status" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_cert_valid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_cert_sid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_bas_perc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="certificate_detailsVenderType">
+		<xsd:sequence>
+			<xsd:element name="vendor_cert_num" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_eff" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_exp" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_status" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_valid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_cert_sid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_bas_perc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="certificate_detailsMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_cert_num" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_eff" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_exp" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_status" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_valid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_cert_sid" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_bas_perc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="exemption_detailsCustType">
+		<xsd:sequence>
+			<xsd:element name="cust_ex_countryc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_countryn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_cityn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_ex_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="exemption_detailsVenderType">
+		<xsd:sequence>
+			<xsd:element name="vend_ex_countryc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_countryn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_cityn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_ex_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="exemption_detailsMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_ex_countryc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_countryn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_cityn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_ex_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="calling_applicationType">
+		<xsd:sequence>
+			<xsd:element name="appl_name" nillable="true">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="appl_doc_id" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="appl_version" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="appl_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="client_ident" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="authenticationType">
+		<xsd:sequence>
+			<xsd:element name="appl_id">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="60"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="appl_pw">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventType">
+		<xsd:sequence>
+			<xsd:element name="event_type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="transaction_date_timeType">
+		<xsd:sequence>
+			<xsd:element name="txn_time_stamp" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="time_zone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="document_datesType">
+		<xsd:sequence>
+			<xsd:element name="doc_create_date" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="doc_dat" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="doc_yyyy" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="doc_mm" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="fisc_year" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="fisc_perio" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="document_identificationType">
+		<xsd:sequence>
+			<xsd:element name="legal_doc_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="doc_num" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="nota_fisc_series" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="doc_templ" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="die_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_doc_num" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ship_doc_dat" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="currency_codesType">
+		<xsd:sequence>
+			<xsd:element name="doc_currency" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="loc_currency" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="exch_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="special_tax_ratesCustType">
+		<xsd:sequence>
+			<xsd:element name="cust_country_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_state_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_county_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_city_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_district_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_sec_county_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_sec_city_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_sec_dist_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="special_tax_ratesVenderType">
+		<xsd:sequence>
+			<xsd:element name="vend_country_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_state_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_county_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_city_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_district_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_sec_county_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_sec_city_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_sec_dist_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cust_tax_exemptionType">
+		<xsd:sequence>
+			<xsd:element name="customer_tax_st" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_tax_cat" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="certificate_details" type="stns:certificate_detailsCustType" nillable="true" minOccurs="0"/>
+			<xsd:element name="exemption_details" type="stns:exemption_detailsCustType" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cust_registrationType">
+		<xsd:sequence>
+			<xsd:element name="cust_country_reg" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_state_reg" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_cnty_reg" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_city_reg" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cust_reg_chk" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cust_tax_registrationType">
+		<xsd:sequence>
+			<xsd:element name="customer_tax_l1" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_tax_l2" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_tax_l3" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customer_tax_regno" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="invoice_sent_to_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_invto" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sent_to_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="special_tax_ratesMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_country_rate" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_state_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_county_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_city_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_district_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_sec_county_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_sec_city_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_sec_dist_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="sold_to_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_soldto" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="sold_to_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cust_establishment_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_cest" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cest_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="other_document_infoType">
+		<xsd:sequence>
+			<xsd:element name="doc_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="scan_id" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="doc_create_by" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element ref="stns:inv_text" minOccurs="0"/>
+			<xsd:element name="document_IC_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="vendorHeaderType">
+		<xsd:sequence>
+			<xsd:element name="mycomp_if_vend" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vendor_name" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element ref="stns:calculation_brid" minOccurs="0"/>
+			<xsd:element name="sales_orga" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vest_add" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_eco_activ" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="39"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="vend_tax_exemption" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vendor_tax_st" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vendor_tax_cat" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="certificate_details" type="stns:certificate_detailsVenderType" nillable="true" minOccurs="0"/>
+						<xsd:element name="exemption_details" type="stns:exemption_detailsVenderType" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="vend_registration" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vend_country_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vend_state_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vend_cnty_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vend_city_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vend_reg_chk" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="special_tax_rates" type="stns:special_tax_ratesVenderType" nillable="true" minOccurs="0"/>
+			<xsd:element name="vend_tax_registration" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vendor_tax_l1" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vendor_tax_l2" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vendor_tax_l3" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vend_tax_regno" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="bill_from_address" type="stns:bill_from_addressType" nillable="true" minOccurs="0"/>
+			<xsd:element name="vend_establishment_address" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_vest" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_street" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_city" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_statec" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_staten" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_zipcode" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_country" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_countyc" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_countyn" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="vest_district" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="vendorLineType">
+		<xsd:sequence>
+			<xsd:element name="ship_from" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_sfrom" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_street" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_city" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_statec" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_staten" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_zipcode" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_countyc" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_countyn" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_country" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ship_frm_district" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="perform_at" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_perf" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_street" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_city" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_statec" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_staten" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_zipcode" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_countyc" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_countyn" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_country" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="perform_district" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="bill_from_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_billf" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bill_frm_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="payment_informationType">
+		<xsd:sequence>
+			<xsd:element name="payment_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="payment_terms" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="paid_date" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="amount_collect" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="vat_amount_rec" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="pay_disc_perc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="pay_terms_day" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="taxation_headerType">
+		<xsd:sequence>
+			<xsd:element name="accrued_tax_amnt" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="other_amount" type="stns:other_amountHeaderType" nillable="true" minOccurs="0"/>
+			<xsd:element name="transaction_tax" type="stns:transaction_taxType" nillable="true" minOccurs="0"/>
+			<xsd:element name="central_sales_tax" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="taxform_number_c" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="taxform_date_c" type="xsd:string" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="local_sales_tax" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="taxform_number_l" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="taxform_date_l" type="xsd:string" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="messages" type="stns:messagesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+			<xsd:element name="taxation_header_line" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="rounding_rule" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="60"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="transaction_tax" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element ref="stns:tax_level" minOccurs="0"/>
+									<xsd:element ref="stns:tax_level_value" minOccurs="0"/>
+									<xsd:element name="tax_amount" nillable="true" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element ref="stns:tax_amount_loc" minOccurs="0"/>
+												<xsd:element ref="stns:tax_amount_doc" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="exempt_amount" nillable="true" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element ref="stns:exempt_amount_loc" minOccurs="0"/>
+												<xsd:element ref="stns:exempt_amount_doc" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="messages" type="stns:messagesType" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="taxation_lineType">
+		<xsd:sequence>
+			<xsd:element name="other_amount" type="stns:other_amountLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="fiscal_class" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transaction_tax" type="stns:transaction_taxType" nillable="true" minOccurs="0"/>
+			<xsd:element name="tax_jurisdiction_applied" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="jurisdic_code1" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="jurisdic_code2" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="jurisdic_t_code" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="2"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="freight_forwarder" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vat_gr_reg_num" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:length value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="exemption" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="determine_appl" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="messages" type="stns:messagesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+			<xsd:element name="taxation_line_item" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_rule" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="tax_rule_appl" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="10"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="tax_rule_text" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="tax_invoice_desc" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="tax_text" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="60"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="messages" type="stns:messagesType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="other_tax_info" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="tax_type" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="5"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="tax_direction" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="1"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element ref="stns:tax_level" minOccurs="0"/>
+									<xsd:element ref="stns:tax_level_value" minOccurs="0"/>
+									<xsd:element name="tax_zone_name" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="60"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="tax_zone_level" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="5"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="reason_code" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="fi_book_indic" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="taxable_base_amount" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="taxable_base_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+									<xsd:element name="taxable_base_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+									<xsd:element name="tax_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="exempt_amount" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element ref="stns:exempt_amount_loc" minOccurs="0"/>
+									<xsd:element ref="stns:exempt_amount_doc" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="reduce_base_amt" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+						<xsd:element name="tax_rec_percent" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+						<xsd:element name="differential_amount" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="differ_amount_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+									<xsd:element name="differ_amount_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="withholding_taxes" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="wht_rate" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+									<xsd:element name="wht_base_amt" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+									<xsd:element name="wht_amt" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="tax_amount" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element ref="stns:tax_amount_loc" minOccurs="0"/>
+									<xsd:element ref="stns:tax_amount_doc" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="general_ledger" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="gl_account" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="10"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="gl_account_txt" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="taxing_situation" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="jurisdictional_base" nillable="true" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="jurisdic_basis" nillable="true" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="10"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="poo_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_poo" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poo_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="poa_addressType">
+		<xsd:sequence>
+			<xsd:element name="tax_auth_poa" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_street" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_city" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_statec" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_staten" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_zipcode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_countyc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_countyn" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="poa_district" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="per_on_mycompType">
+		<xsd:sequence>
+			<xsd:element name="initiator" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="initiator_fname" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="initiator_lname" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="to_contact" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tocontact_fname" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="tocontact_lname" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="document_line_datesType">
+		<xsd:sequence>
+			<xsd:element name="tax_point_date" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ship_date" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="product_material_partsType">
+		<xsd:sequence>
+			<xsd:element name="product_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_text" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_cat" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_line" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_type" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="bundled_service" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="measure_unit" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_code_cs" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="group_product_id" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="origin_country" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="manufacturing_cost" type="stns:manufacturing_costType" nillable="true" minOccurs="0"/>
+			<xsd:element name="IC_price" type="stns:IC_priceType" nillable="true" minOccurs="0"/>
+			<xsd:element name="material_cost" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="product_kind" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="price_curr_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="origin_class" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="product_manu" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="material_usg" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="kind_of_serv" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="intrastat_infoType">
+		<xsd:sequence>
+			<xsd:element name="net_mass" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="supplementary_unit" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="net_mass_unit" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gross_mass" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="logistic_infoType">
+		<xsd:sequence>
+			<xsd:element name="point_of_passage" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="goods_moved_flag" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="delivery_terms" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transport_mode" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="duty_status" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="reference_infoType">
+		<xsd:sequence>
+			<xsd:element name="cust_purchase_no" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="contract_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="rev_charge_indic" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cost_location" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cfo" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="cfp" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mun_code" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ipi_credit" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="federal_code" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="e-QuateType">
+		<xsd:sequence>
+			<xsd:element name="equate_code" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="equate_entity" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="equate_subentity" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EERType">
+		<xsd:sequence>
+			<xsd:element name="eer_co_location" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="eer_business" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="60"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="eer_receipt" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="invoice_referenceType">
+		<xsd:sequence>
+			<xsd:element name="invoice_ref_no" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="invoice_ref_date" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element ref="stns:inv_text" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="currency_codesLineType">
+		<xsd:sequence>
+			<xsd:element name="doc_currency" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="loc_currency" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="freight_and_shipping_amountType">
+		<xsd:sequence>
+			<xsd:element name="freight_amnt_loc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="freight_amnt_doc" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="sales_order_referenceType">
+		<xsd:sequence>
+			<xsd:element name="salesorder_ref" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="salesorder_dat" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="order_amountType">
+		<xsd:sequence>
+			<xsd:element name="order_curr" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="order_curr_code" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tax_returnType">
+		<xsd:sequence>
+			<xsd:element name="tax_return_date" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ref_tax_return" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="freight_amountType">
+		<xsd:sequence>
+			<xsd:element name="freight_cost_loc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="freight_cost_doc" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="stns:decimal_or_empty"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="middlemanType">
+		<xsd:sequence>
+			<xsd:element name="mycomp_if_mm" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_number" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_name" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element ref="stns:calculation_brid" minOccurs="0"/>
+			<xsd:element name="mest_add" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_eco_activ" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="39"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mm_tax_exemption" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mm_tax_st" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_tax_cat" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="certificate_details" type="stns:certificate_detailsMMType" nillable="true" minOccurs="0"/>
+						<xsd:element name="exemption_details" type="stns:exemption_detailsMMType" nillable="true" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mm_registration" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mm_country_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_state_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_cnty_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_city_reg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_reg_chk" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="special_tax_rates" type="stns:special_tax_ratesMMType" nillable="true" minOccurs="0"/>
+			<xsd:element name="mm_tax_registration" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mm_tax_l1" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_tax_l2" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_tax_l3" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_tax_regno" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="billing_address" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_mmbill" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_street" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_city" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_statec" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_staten" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_zipcode" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_countyc" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_countyn" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_country" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_bill_district" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="legal_address" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_mmlegal" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_street" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_city" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_statec" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_staten" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_zipcode" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_countyc" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_countyn" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_country" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_legal_district" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mm_establishment_address" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tax_auth_mmest" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="20"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_street" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_city" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_statec" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_staten" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_zipcode" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_country" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_countyc" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="3"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_countyn" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mm_est_district" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="document_headerType">
+		<xsd:sequence>
+			<xsd:element name="document_identification" type="stns:document_identificationType"/>
+			<xsd:element name="document_dates" type="stns:document_datesType"/>
+			<xsd:element name="currency_codes" type="stns:currency_codesType"/>
+			<xsd:element name="other_document_info" type="stns:other_document_infoType" minOccurs="0"/>
+			<xsd:element name="transaction" type="stns:transactionType"/>
+			<xsd:element name="tax_return" type="stns:tax_returnType" nillable="true" minOccurs="0"/>
+			<xsd:element name="financial_document" type="stns:financial_documentType" minOccurs="0"/>
+			<xsd:element name="gross_amount" type="stns:gross_amountHeaderType" nillable="true" minOccurs="0"/>
+			<xsd:element name="discount_amount" type="stns:discount_amountHeaderType" nillable="true" minOccurs="0"/>
+			<xsd:element name="net_amount" type="stns:net_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="freight_amount" type="stns:freight_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="insurance_amount" type="stns:insurance_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="customer" type="stns:customerHeaderType"/>
+			<xsd:element name="vendor" type="stns:vendorHeaderType" nillable="true" minOccurs="0"/>
+			<xsd:element name="middleman" type="stns:middlemanType" nillable="true" minOccurs="0"/>
+			<xsd:element name="payment_information" type="stns:payment_informationType" nillable="true" minOccurs="0"/>
+			<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+			<xsd:element name="taxation_header" type="stns:taxation_headerType" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="document_lineType">
+		<xsd:sequence>
+			<xsd:element name="doc_line_no" type="stns:integer_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="doc_line_quan" type="stns:decimal_or_empty" nillable="true" minOccurs="0"/>
+			<xsd:element name="transaction" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="stns:trans_type" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="document_line_dates" type="stns:document_line_datesType" nillable="true" minOccurs="0"/>
+			<xsd:element name="financial_document" type="stns:financial_documentType" nillable="true" minOccurs="0"/>
+			<xsd:element name="product_material_parts" type="stns:product_material_partsType" nillable="true" minOccurs="0"/>
+			<xsd:element name="intrastat_info" type="stns:intrastat_infoType" nillable="true" minOccurs="0"/>
+			<xsd:element name="logistic_info" type="stns:logistic_infoType" nillable="true" minOccurs="0"/>
+			<xsd:element name="reference_info" type="stns:reference_infoType" nillable="true" minOccurs="0"/>
+			<xsd:element name="order_amount" type="stns:order_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="e-Quate" type="stns:e-QuateType" nillable="true" minOccurs="0"/>
+			<xsd:element name="EER" type="stns:EERType" nillable="true" minOccurs="0"/>
+			<xsd:element name="per_on_mycomp" type="stns:per_on_mycompType" nillable="true" minOccurs="0"/>
+			<xsd:element name="sales_order_reference" type="stns:sales_order_referenceType" nillable="true" minOccurs="0"/>
+			<xsd:element name="insurance_amount" type="stns:insurance_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="freight_and_shipping_amount" type="stns:freight_and_shipping_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="gross_amount" type="stns:gross_amountLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="discount_amount" type="stns:discount_amountLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="net_amount" type="stns:net_amountType" nillable="true" minOccurs="0"/>
+			<xsd:element name="poa_address" type="stns:poa_addressType" nillable="true" minOccurs="0"/>
+			<xsd:element name="poo_address" type="stns:poo_addressType" nillable="true" minOccurs="0"/>
+			<xsd:element name="customer" type="stns:customerLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="vendor" type="stns:vendorLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="invoice_reference" type="stns:invoice_referenceType" nillable="true" minOccurs="0"/>
+			<xsd:element name="freight_forwarder" nillable="true" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fw_agency_taxreg" nillable="true" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="35"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="currency_codes" type="stns:currency_codesLineType" nillable="true" minOccurs="0"/>
+			<xsd:element name="reserved_fields" type="stns:reserved_fieldsType" nillable="true" minOccurs="0"/>
+			<xsd:element name="taxation_line" type="stns:taxation_lineType" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfDocument_LineType">
+		<xsd:complexContent>
+			<xsd:restriction base="soapenc:Array">
+				<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:document_lineType[]"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="decimal_or_empty">
+		<xsd:union memberTypes="xsd:decimal">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value=""/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="integer_or_empty">
+		<xsd:union memberTypes="xsd:integer">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value=""/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+</xsd:schema>

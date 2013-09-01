@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Ranger (HEWLETT PACKARD) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stns="java:com.hp.wwops.ecommerce.service.entity.wstax3" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="java:com.hp.wwops.ecommerce.service.entity.wstax3" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+	<xsd:complexType name="ArrayOfDocument_LineType">
+		<xsd:complexContent>
+			<xsd:restriction base="soapenc:Array">
+				<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:Document_LineType[]"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfMessagesType">
+		<xsd:complexContent>
+			<xsd:restriction base="soapenc:Array">
+				<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:MessagesType[]"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfTaxation_Line_ItemAnonType">
+		<xsd:complexContent>
+			<xsd:restriction base="soapenc:Array">
+				<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:Taxation_Line_ItemAnonType[]"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="AuthenticationType">
+		<xsd:sequence>
+			<xsd:element name="appl_Id" type="xsd:string" nillable="true"/>
+			<xsd:element name="appl_Pw" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Bill_From_AddressType">
+		<xsd:sequence>
+			<xsd:element name="bill_Frm_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="bill_Frm_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Billf" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Billing_AddressAnonType">
+		<xsd:sequence>
+			<xsd:element name="mm_Bill_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Bill_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Mmbill" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Calling_ApplicationType">
+		<xsd:sequence>
+			<xsd:element name="appl_Doc_Id" type="xsd:string" nillable="true"/>
+			<xsd:element name="appl_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="appl_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="appl_Version" type="xsd:string" nillable="true"/>
+			<xsd:element name="client_Ident" type="xsd:string" nillable="true"/>
+			<xsd:element name="engine_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_If_Version" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_Engine_DetailsType">
+		<xsd:sequence>
+			<xsd:element name="cs_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="cs_Version" type="xsd:string" nillable="true"/>
+			<xsd:element name="cs_Patch" type="xsd:string" nillable="true"/>
+			<xsd:element name="cs_Tax_Api" type="xsd:string" nillable="true"/>
+			<xsd:element name="cs_Server" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Adapter_IdentifierType">
+		<xsd:sequence>
+			<xsd:element name="ba_Adapter" type="stns:Ba_AdapterType" nillable="true"/>
+			<xsd:element name="ce_Adapter" type="stns:Ce_AdapterType" nillable="true"/>
+			<xsd:element name="db_Adapter" type="stns:Db_AdapterType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Ba_AdapterType">
+		<xsd:sequence>
+			<xsd:element name="ba_Adap_Ident" type="xsd:string" nillable="true"/>
+			<xsd:element name="ba_Adap_Vers" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Ce_AdapterType">
+		<xsd:sequence>
+			<xsd:element name="ce_Adap_Ident" type="xsd:string" nillable="true"/>
+			<xsd:element name="ce_Adap_Vers" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Db_AdapterType">
+		<xsd:sequence>
+			<xsd:element name="db_Adap_Ident" type="xsd:string" nillable="true"/>
+			<xsd:element name="db_Adap_Vers" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Central_Sales_TaxAnonType">
+		<xsd:sequence>
+			<xsd:element name="taxform_Date_C" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="taxform_Number_C" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Certificate_DetailsCustType">
+		<xsd:sequence>
+			<xsd:element name="customer_Bas_Perc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="customer_Cert_Eff" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="customer_Cert_Exp" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="customer_Cert_Num" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Cert_Sid" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Cert_Status" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Cert_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Cert_Valid" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Certificate_DetailsMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_Bas_Perc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_Cert_Eff" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="mm_Cert_Exp" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="mm_Cert_Num" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Cert_Sid" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Cert_Status" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Cert_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Cert_Valid" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Certificate_DetailsVenderType">
+		<xsd:sequence>
+			<xsd:element name="vendor_Bas_Perc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vendor_Cert_Eff" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="vendor_Cert_Exp" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="vendor_Cert_Num" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Cert_Sid" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Cert_Status" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Cert_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Cert_Valid" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Currency_CodesLineType">
+		<xsd:sequence>
+			<xsd:element name="doc_Currency" type="xsd:string" nillable="true"/>
+			<xsd:element name="loc_Currency" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Currency_CodesType">
+		<xsd:sequence>
+			<xsd:element name="doc_Currency" type="xsd:string" nillable="true"/>
+			<xsd:element name="exch_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="loc_Currency" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Cust_Establishment_AddressType">
+		<xsd:sequence>
+			<xsd:element name="cest_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Cest" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Cust_RegistrationType">
+		<xsd:sequence>
+			<xsd:element name="cust_City_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Cnty_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Country_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Reg_Chk" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_State_Reg" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Cust_Tax_ExemptionType">
+		<xsd:sequence>
+			<xsd:element name="certificate_Details" type="stns:Certificate_DetailsCustType" nillable="true"/>
+			<xsd:element name="customer_Tax_Cat" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Tax_St" type="xsd:string" nillable="true"/>
+			<xsd:element name="exemption_Details" type="stns:Exemption_DetailsCustType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Cust_Tax_RegistrationType">
+		<xsd:sequence>
+			<xsd:element name="customer_Tax_L1" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Tax_L2" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Tax_L3" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Tax_Regno" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerHeaderType">
+		<xsd:sequence>
+			<xsd:element name="calculation_Brid" type="xsd:string" nillable="true"/>
+			<xsd:element name="cest_Add" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Eco_Activ" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Establishment_Address" type="stns:Cust_Establishment_AddressType" nillable="true"/>
+			<xsd:element name="cust_Registration" type="stns:Cust_RegistrationType" nillable="true"/>
+			<xsd:element name="cust_Tax_Exemption" type="stns:Cust_Tax_ExemptionType" nillable="true"/>
+			<xsd:element name="cust_Tax_Registration" type="stns:Cust_Tax_RegistrationType" nillable="true"/>
+			<xsd:element name="customer_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="customer_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="invoice_Sent_To_Address" type="stns:Invoice_Sent_To_AddressType" nillable="true"/>
+			<xsd:element name="mycomp_If_Cust" type="xsd:string" nillable="true"/>
+			<xsd:element name="purchase_Orga" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Address" type="stns:Sold_To_AddressType" nillable="true"/>
+			<xsd:element name="special_Tax_Rates" type="stns:Special_Tax_RatesCustType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerLineType">
+		<xsd:sequence>
+			<xsd:element name="ship_To" type="stns:Ship_ToType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Differential_AmountAnonType">
+		<xsd:sequence>
+			<xsd:element name="differ_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="differ_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Discount_AmountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="disc_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="disc_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Discount_AmountLineType">
+		<xsd:sequence>
+			<xsd:element name="disc_Amnt_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="disc_Amnt_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Document_DatesType">
+		<xsd:sequence>
+			<xsd:element name="doc_Create_Date" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="doc_Dat" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="doc_Mm" type="xsd:string" nillable="true"/>
+			<xsd:element name="doc_Yyyy" type="xsd:string" nillable="true"/>
+			<xsd:element name="fisc_Perio" type="xsd:string" nillable="true"/>
+			<xsd:element name="fisc_Year" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Document_HeaderType">
+		<xsd:sequence>
+			<xsd:element name="currency_Codes" type="stns:Currency_CodesType" nillable="true"/>
+			<xsd:element name="customer" type="stns:CustomerHeaderType" nillable="true"/>
+			<xsd:element name="discount_Amount" type="stns:Discount_AmountHeaderType" nillable="true"/>
+			<xsd:element name="document_Dates" type="stns:Document_DatesType" nillable="true"/>
+			<xsd:element name="document_Identification" type="stns:Document_IdentificationType" nillable="true"/>
+			<xsd:element name="financial_Document" type="stns:Financial_DocumentType" nillable="true"/>
+			<xsd:element name="freight_Amount" type="stns:Freight_AmountType" nillable="true"/>
+			<xsd:element name="gross_Amount" type="stns:Gross_AmountHeaderType" nillable="true"/>
+			<xsd:element name="insurance_Amount" type="stns:Insurance_AmountType" nillable="true"/>
+			<xsd:element name="middleman" type="stns:MiddlemanType" nillable="true"/>
+			<xsd:element name="net_Amount" type="stns:Net_AmountType" nillable="true"/>
+			<xsd:element name="other_Document_Info" type="stns:Other_Document_InfoType" nillable="true"/>
+			<xsd:element name="payment_Information" type="stns:Payment_InformationType" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="tax_Return" type="stns:Tax_ReturnType" nillable="true"/>
+			<xsd:element name="taxation_Header" type="stns:Taxation_HeaderType" nillable="true"/>
+			<xsd:element name="transaction" type="stns:TransactionType" nillable="true"/>
+			<xsd:element name="vendor" type="stns:VendorHeaderType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Document_IdentificationType">
+		<xsd:sequence>
+			<xsd:element name="die_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="doc_Num" type="xsd:string" nillable="true"/>
+			<xsd:element name="doc_Templ" type="xsd:string" nillable="true"/>
+			<xsd:element name="legal_Doc_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="nota_Fisc_Series" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Doc_Dat" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Doc_Num" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Document_LineType">
+		<xsd:sequence>
+			<xsd:element name="EER" type="stns:EERType" nillable="true"/>
+			<xsd:element name="EQuate" type="stns:EQuateType" nillable="true"/>
+			<xsd:element name="currency_Codes" type="stns:Currency_CodesLineType" nillable="true"/>
+			<xsd:element name="customer" type="stns:CustomerLineType" nillable="true"/>
+			<xsd:element name="discount_Amount" type="stns:Discount_AmountLineType" nillable="true"/>
+			<xsd:element name="doc_Line_No" type="xsd:integer" nillable="true"/>
+			<xsd:element name="doc_Line_Quan" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="document_Line_Dates" type="stns:Document_Line_DatesType" nillable="true"/>
+			<xsd:element name="financial_Document" type="stns:Financial_DocumentType" nillable="true"/>
+			<xsd:element name="freight_And_Shipping_Amount" type="stns:Freight_And_Shipping_AmountType" nillable="true"/>
+			<xsd:element name="freight_Forwarder" type="stns:Freight_ForwarderAnonType" nillable="true"/>
+			<xsd:element name="gross_Amount" type="stns:Gross_AmountLineType" nillable="true"/>
+			<xsd:element name="insurance_Amount" type="stns:Insurance_AmountType" nillable="true"/>
+			<xsd:element name="intrastat_Info" type="stns:Intrastat_InfoType" nillable="true"/>
+			<xsd:element name="invoice_Reference" type="stns:Invoice_ReferenceType" nillable="true"/>
+			<xsd:element name="logistic_Info" type="stns:Logistic_InfoType" nillable="true"/>
+			<xsd:element name="net_Amount" type="stns:Net_AmountType" nillable="true"/>
+			<xsd:element name="order_Amount" type="stns:Order_AmountType" nillable="true"/>
+			<xsd:element name="per_On_Mycomp" type="stns:Per_On_MycompType" nillable="true"/>
+			<xsd:element name="poa_Address" type="stns:Poa_AddressType" nillable="true"/>
+			<xsd:element name="poo_Address" type="stns:Poo_AddressType" nillable="true"/>
+			<xsd:element name="product_Material_Parts" type="stns:Product_Material_PartsType" nillable="true"/>
+			<xsd:element name="reference_Info" type="stns:Reference_InfoType" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="sales_Order_Reference" type="stns:Sales_Order_ReferenceType" nillable="true"/>
+			<xsd:element name="taxation_Line" type="stns:Taxation_LineType" nillable="true"/>
+			<xsd:element name="transaction" type="stns:TransactionAnonType" nillable="true"/>
+			<xsd:element name="vendor" type="stns:VendorLineType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Document_Line_DatesType">
+		<xsd:sequence>
+			<xsd:element name="ship_Date" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="tax_Point_Date" type="xsd:dateTime" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EERType">
+		<xsd:sequence>
+			<xsd:element name="eer_Business" type="xsd:string" nillable="true"/>
+			<xsd:element name="eer_Co_Location" type="xsd:string" nillable="true"/>
+			<xsd:element name="eer_Receipt" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EQuateType">
+		<xsd:sequence>
+			<xsd:element name="equate_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="equate_Entity" type="xsd:string" nillable="true"/>
+			<xsd:element name="equate_Subentity" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EventType">
+		<xsd:sequence>
+			<xsd:element name="event_Type" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Exempt_AmountAnonType">
+		<xsd:sequence>
+			<xsd:element name="exempt_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="exempt_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Exempt_AmountAnonType6">
+		<xsd:sequence>
+			<xsd:element name="exempt_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="exempt_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExemptionAnonType">
+		<xsd:sequence>
+			<xsd:element name="determine_Appl" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Exemption_DetailsCustType">
+		<xsd:sequence>
+			<xsd:element name="cust_Ex_Cityn" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Countryc" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Countryn" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Ex_Zipcode" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Exemption_DetailsMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_Ex_Cityn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Countryc" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Countryn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Ex_Zipcode" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Exemption_DetailsVenderType">
+		<xsd:sequence>
+			<xsd:element name="vend_Ex_Cityn" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Countryc" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Countryn" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Ex_Zipcode" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Financial_DocumentType">
+		<xsd:sequence>
+			<xsd:element name="finance_Doc_Date" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="finance_Doc_No" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Freight_AmountType">
+		<xsd:sequence>
+			<xsd:element name="freight_Cost_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="freight_Cost_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Freight_And_Shipping_AmountType">
+		<xsd:sequence>
+			<xsd:element name="freight_Amnt_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="freight_Amnt_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Freight_ForwarderAnonType">
+		<xsd:sequence>
+			<xsd:element name="fw_Agency_Taxreg" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Freight_ForwarderAnonType4">
+		<xsd:sequence>
+			<xsd:element name="vat_Gr_Reg_Num" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="General_LedgerAnonType">
+		<xsd:sequence>
+			<xsd:element name="gl_Account" type="xsd:string" nillable="true"/>
+			<xsd:element name="gl_Account_Txt" type="xsd:string" nillable="true"/>
+			<xsd:element name="taxing_Situation" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Gross_AmountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="gross_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="gross_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Gross_AmountLineType">
+		<xsd:sequence>
+			<xsd:element name="gross_Amnt_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="gross_Amnt_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IC_PriceType">
+		<xsd:sequence>
+			<xsd:element name="ic_Price_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="ic_Price_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InitiatorAnonType">
+		<xsd:sequence>
+			<xsd:element name="initiator_Fname" type="xsd:string" nillable="true"/>
+			<xsd:element name="initiator_Lname" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Insurance_AmountType">
+		<xsd:sequence>
+			<xsd:element name="insure_Amnt_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="insure_Amnt_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Intrastat_InfoType">
+		<xsd:sequence>
+			<xsd:element name="gross_Mass" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="net_Mass" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="net_Mass_Unit" type="xsd:string" nillable="true"/>
+			<xsd:element name="supplementary_Unit" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Invoice_ReferenceType">
+		<xsd:sequence>
+			<xsd:element name="inv_Text" type="xsd:string" nillable="true"/>
+			<xsd:element name="invoice_Ref_Date" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="invoice_Ref_No" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Invoice_Sent_To_AddressType">
+		<xsd:sequence>
+			<xsd:element name="sent_To_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="sent_To_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Invto" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Jurisdictional_BaseAnonType">
+		<xsd:sequence>
+			<xsd:element name="jurisdic_Basis" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Legal_AddressAnonType">
+		<xsd:sequence>
+			<xsd:element name="mm_Legal_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Legal_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Mmlegal" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Local_Sales_TaxAnonType">
+		<xsd:sequence>
+			<xsd:element name="taxform_Date_L" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="taxform_Number_L" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Logistic_InfoType">
+		<xsd:sequence>
+			<xsd:element name="delivery_Terms" type="xsd:string" nillable="true"/>
+			<xsd:element name="duty_Status" type="xsd:string" nillable="true"/>
+			<xsd:element name="goods_Moved_Flag" type="xsd:string" nillable="true"/>
+			<xsd:element name="point_Of_Passage" type="xsd:string" nillable="true"/>
+			<xsd:element name="transport_Mode" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Manufacturing_CostType">
+		<xsd:sequence>
+			<xsd:element name="manufacture_Cost_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="manufacture_Cost_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MessagesType">
+		<xsd:sequence>
+			<xsd:element name="category" type="xsd:string" nillable="true"/>
+			<xsd:element name="code" type="xsd:string" nillable="true"/>
+			<xsd:element name="location" type="xsd:string" nillable="true"/>
+			<xsd:element name="msg_Text" type="xsd:string" nillable="true"/>
+			<xsd:element name="severity" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MiddlemanType">
+		<xsd:sequence>
+			<xsd:element name="billing_Address" type="stns:Billing_AddressAnonType" nillable="true"/>
+			<xsd:element name="calculation_Brid" type="xsd:string" nillable="true"/>
+			<xsd:element name="legal_Address" type="stns:Legal_AddressAnonType" nillable="true"/>
+			<xsd:element name="mest_Add" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Eco_Activ" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Establishment_Address" type="stns:Mm_Establishment_AddressAnonType" nillable="true"/>
+			<xsd:element name="mm_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Registration" type="stns:Mm_RegistrationAnonType" nillable="true"/>
+			<xsd:element name="mm_Tax_Exemption" type="stns:Mm_Tax_ExemptionAnonType" nillable="true"/>
+			<xsd:element name="mm_Tax_Registration" type="stns:Mm_Tax_RegistrationAnonType" nillable="true"/>
+			<xsd:element name="mycomp_If_Mm" type="xsd:string" nillable="true"/>
+			<xsd:element name="special_Tax_Rates" type="stns:Special_Tax_RatesMMType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Mm_Establishment_AddressAnonType">
+		<xsd:sequence>
+			<xsd:element name="mm_Est_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Est_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Mmest" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Mm_RegistrationAnonType">
+		<xsd:sequence>
+			<xsd:element name="mm_City_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Cnty_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Country_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Reg_Chk" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_State_Reg" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Mm_Tax_ExemptionAnonType">
+		<xsd:sequence>
+			<xsd:element name="certificate_Details" type="stns:Certificate_DetailsMMType" nillable="true"/>
+			<xsd:element name="exemption_Details" type="stns:Exemption_DetailsMMType" nillable="true"/>
+			<xsd:element name="mm_Tax_Cat" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Tax_St" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Mm_Tax_RegistrationAnonType">
+		<xsd:sequence>
+			<xsd:element name="mm_Tax_L1" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Tax_L2" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Tax_L3" type="xsd:string" nillable="true"/>
+			<xsd:element name="mm_Tax_Regno" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Net_AmountType">
+		<xsd:sequence>
+			<xsd:element name="net_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="net_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Order_AmountType">
+		<xsd:sequence>
+			<xsd:element name="order_Curr" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="order_Curr_Code" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Other_AmountHeaderType">
+		<xsd:sequence>
+			<xsd:element name="other_Amt_Txh_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="other_Amt_Txh_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Other_AmountLineType">
+		<xsd:sequence>
+			<xsd:element name="other_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="other_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Other_Document_InfoType">
+		<xsd:sequence>
+			<xsd:element name="doc_Create_By" type="xsd:string" nillable="true"/>
+			<xsd:element name="doc_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="document_IC_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="inv_Text" type="xsd:string" nillable="true"/>
+			<xsd:element name="scan_Id" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Other_Tax_InfoAnonType">
+		<xsd:sequence>
+			<xsd:element name="fi_Book_Indic" type="xsd:string" nillable="true"/>
+			<xsd:element name="reason_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Direction" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Level" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Level_Value" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Zone_Level" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Zone_Name" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Payment_InformationType">
+		<xsd:sequence>
+			<xsd:element name="amount_Collect" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="paid_Date" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="pay_Disc_Perc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="pay_Terms_Day" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="payment_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="payment_Terms" type="xsd:string" nillable="true"/>
+			<xsd:element name="vat_Amount_Rec" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Per_On_MycompType">
+		<xsd:sequence>
+			<xsd:element name="initiator" type="stns:InitiatorAnonType" nillable="true"/>
+			<xsd:element name="to_Contact" type="stns:To_ContactAnonType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Perform_AtAnonType">
+		<xsd:sequence>
+			<xsd:element name="perform_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="perform_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Perf" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Poa_AddressType">
+		<xsd:sequence>
+			<xsd:element name="poa_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="poa_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Poa" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Poo_AddressType">
+		<xsd:sequence>
+			<xsd:element name="poo_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="poo_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Poo" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Product_Material_PartsType">
+		<xsd:sequence>
+			<xsd:element name="IC_Price" type="stns:IC_PriceType" nillable="true"/>
+			<xsd:element name="bundled_Service" type="xsd:string" nillable="true"/>
+			<xsd:element name="group_Product_Id" type="xsd:string" nillable="true"/>
+			<xsd:element name="kind_Of_Serv" type="xsd:string" nillable="true"/>
+			<xsd:element name="manufacturing_Cost" type="stns:Manufacturing_CostType" nillable="true"/>
+			<xsd:element name="material_Cost" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="material_Usg" type="xsd:string" nillable="true"/>
+			<xsd:element name="measure_Unit" type="xsd:string" nillable="true"/>
+			<xsd:element name="origin_Class" type="xsd:string" nillable="true"/>
+			<xsd:element name="origin_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="price_Curr_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="product_Cat" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Code_Cs" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Kind" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Line" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Manu" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Text" type="xsd:string" nillable="true"/>
+			<xsd:element name="product_Type" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Reference_InfoType">
+		<xsd:sequence>
+			<xsd:element name="cfo" type="xsd:string" nillable="true"/>
+			<xsd:element name="cfp" type="xsd:string" nillable="true"/>
+			<xsd:element name="contract_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="cost_Location" type="xsd:string" nillable="true"/>
+			<xsd:element name="cust_Purchase_No" type="xsd:string" nillable="true"/>
+			<xsd:element name="federal_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="ipi_Credit" type="xsd:string" nillable="true"/>
+			<xsd:element name="mun_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="rev_Charge_Indic" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Reserved_FieldsType">
+		<xsd:sequence>
+			<xsd:element name="resv_Field1" type="xsd:string" nillable="true"/>
+			<xsd:element name="resv_Field2" type="xsd:string" nillable="true"/>
+			<xsd:element name="resv_Field3" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="resv_Field4" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="resv_Field5" type="xsd:dateTime" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Sales_Order_ReferenceType">
+		<xsd:sequence>
+			<xsd:element name="salesorder_Dat" type="xsd:dateTime" nillable="true"/>
+			<xsd:element name="salesorder_Ref" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Ship_FromAnonType">
+		<xsd:sequence>
+			<xsd:element name="ship_Frm_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_Frm_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Sfrom" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Ship_ToType">
+		<xsd:sequence>
+			<xsd:element name="ship_To_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="ship_To_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Shipto" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Sold_To_AddressType">
+		<xsd:sequence>
+			<xsd:element name="sold_To_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="sold_To_Zipcode" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Auth_Soldto" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Special_Tax_RatesCustType">
+		<xsd:sequence>
+			<xsd:element name="cust_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_Country_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_District_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_Sec_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_Sec_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_Sec_Dist_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="cust_State_Rate" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Special_Tax_RatesMMType">
+		<xsd:sequence>
+			<xsd:element name="mm_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_Country_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_District_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_Sec_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_Sec_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_Sec_Dist_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="mm_State_Rate" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Special_Tax_RatesVenderType">
+		<xsd:sequence>
+			<xsd:element name="vend_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_Country_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_District_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_Sec_City_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_Sec_County_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_Sec_Dist_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="vend_State_Rate" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxRequest">
+		<xsd:sequence>
+			<xsd:element name="authentication" type="stns:AuthenticationType" nillable="true"/>
+			<xsd:element name="calling_Application" type="stns:Calling_ApplicationType" nillable="true"/>
+			<xsd:element name="tax_Engine_Details" type="stns:Tax_Engine_DetailsType" nillable="true"/>
+			<xsd:element name="adapter_Identifier" type="stns:Adapter_IdentifierType" nillable="true"/>
+			<xsd:element name="document_Header" type="stns:Document_HeaderType" nillable="true"/>
+			<xsd:element name="event" type="stns:EventType" nillable="true"/>
+			<xsd:element name="lineItemTaxs" type="stns:ArrayOfDocument_LineType" nillable="true"/>
+			<xsd:element name="transaction_Date_Time" type="stns:Transaction_Date_TimeType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxResult">
+		<xsd:sequence>
+			<xsd:element name="calling_Application" type="stns:Calling_ApplicationType" nillable="true"/>
+			<xsd:element name="document_Header" type="stns:Document_HeaderType" nillable="true"/>
+			<xsd:element name="lineItemTaxs" type="stns:ArrayOfDocument_LineType" nillable="true"/>
+			<xsd:element name="soapFault" type="xsd:string" nillable="true"/>
+			<xsd:element name="status" type="xsd:boolean"/>
+			<xsd:element name="transaction_Date_Time" type="stns:Transaction_Date_TimeType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_AmountAnonType">
+		<xsd:sequence>
+			<xsd:element name="tax_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="tax_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_AmountAnonType7">
+		<xsd:sequence>
+			<xsd:element name="tax_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="tax_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_Invoice_DescAnonType">
+		<xsd:sequence>
+			<xsd:element name="tax_Text" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_Jurisdiction_AppliedAnonType">
+		<xsd:sequence>
+			<xsd:element name="jurisdic_Code1" type="xsd:string" nillable="true"/>
+			<xsd:element name="jurisdic_Code2" type="xsd:string" nillable="true"/>
+			<xsd:element name="jurisdic_T_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="vat_Gr_Reg_Num" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_ReturnType">
+		<xsd:sequence>
+			<xsd:element name="ref_Tax_Return" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Return_Date" type="xsd:dateTime" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax_RuleAnonType">
+		<xsd:sequence>
+			<xsd:element name="tax_Rule_Appl" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Rule_Text" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Taxable_Base_AmountAnonType">
+		<xsd:sequence>
+			<xsd:element name="tax_Rate" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="taxable_Base_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="taxable_Base_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Taxation_HeaderType">
+		<xsd:sequence>
+			<xsd:element name="accrued_Tax_Amnt" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="central_Sales_Tax" type="stns:Central_Sales_TaxAnonType" nillable="true"/>
+			<xsd:element name="local_Sales_Tax" type="stns:Local_Sales_TaxAnonType" nillable="true"/>
+			<xsd:element name="messages" type="stns:ArrayOfMessagesType" nillable="true"/>
+			<xsd:element name="other_Amount" type="stns:Other_AmountHeaderType" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="taxation_Header_Line" type="stns:Taxation_Header_LineAnonType" nillable="true"/>
+			<xsd:element name="transaction_Tax" type="stns:Transaction_TaxType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Taxation_Header_LineAnonType">
+		<xsd:sequence>
+			<xsd:element name="messages" type="stns:ArrayOfMessagesType" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="rounding_Rule" type="xsd:string" nillable="true"/>
+			<xsd:element name="transaction_Tax" type="stns:Transaction_TaxAnonType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Taxation_LineType">
+		<xsd:sequence>
+			<xsd:element name="exemption" type="stns:ExemptionAnonType" nillable="true"/>
+			<xsd:element name="fiscal_Class" type="xsd:string" nillable="true"/>
+			<xsd:element name="freight_Forwarder" type="stns:Freight_ForwarderAnonType4" nillable="true"/>
+			<xsd:element name="messages" type="stns:ArrayOfMessagesType" nillable="true"/>
+			<xsd:element name="other_Amount" type="stns:Other_AmountLineType" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="tax_Jurisdiction_Applied" type="stns:Tax_Jurisdiction_AppliedAnonType" nillable="true"/>
+			<xsd:element name="taxation_Line_Item" type="stns:ArrayOfTaxation_Line_ItemAnonType" nillable="true"/>
+			<xsd:element name="transaction_Tax" type="stns:Transaction_TaxType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Taxation_Line_ItemAnonType">
+		<xsd:sequence>
+			<xsd:element name="differential_Amount" type="stns:Differential_AmountAnonType" nillable="true"/>
+			<xsd:element name="exempt_Amount" type="stns:Exempt_AmountAnonType6" nillable="true"/>
+			<xsd:element name="general_Ledger" type="stns:General_LedgerAnonType" nillable="true"/>
+			<xsd:element name="jurisdictional_Base" type="stns:Jurisdictional_BaseAnonType" nillable="true"/>
+			<xsd:element name="messages" type="stns:ArrayOfMessagesType" nillable="true"/>
+			<xsd:element name="other_Tax_Info" type="stns:Other_Tax_InfoAnonType" nillable="true"/>
+			<xsd:element name="reduce_Base_Amt" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="reserved_Fields" type="stns:Reserved_FieldsType" nillable="true"/>
+			<xsd:element name="tax_Amount" type="stns:Tax_AmountAnonType7" nillable="true"/>
+			<xsd:element name="tax_Invoice_Desc" type="stns:Tax_Invoice_DescAnonType" nillable="true"/>
+			<xsd:element name="tax_Rec_Percent" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="tax_Rule" type="stns:Tax_RuleAnonType" nillable="true"/>
+			<xsd:element name="taxable_Base_Amount" type="stns:Taxable_Base_AmountAnonType" nillable="true"/>
+			<xsd:element name="withholding_Taxes" type="stns:Withholding_TaxesAnonType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="To_ContactAnonType">
+		<xsd:sequence>
+			<xsd:element name="tocontact_Fname" type="xsd:string" nillable="true"/>
+			<xsd:element name="tocontact_Lname" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TransactionAnonType">
+		<xsd:sequence>
+			<xsd:element name="trans_Type" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TransactionType">
+		<xsd:sequence>
+			<xsd:element name="acc_Trans" type="xsd:string" nillable="true"/>
+			<xsd:element name="credit_Indicator" type="xsd:string" nillable="true"/>
+			<xsd:element name="doc_Cancel" type="xsd:string" nillable="true"/>
+			<xsd:element name="trans_Indicator" type="xsd:string" nillable="true"/>
+			<xsd:element name="trans_Sub_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="trans_Type" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Transaction_Date_TimeType">
+		<xsd:sequence>
+			<xsd:element name="time_Zone" type="xsd:string" nillable="true"/>
+			<xsd:element name="txn_Time_Stamp" type="xsd:dateTime" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Transaction_TaxAnonType">
+		<xsd:sequence>
+			<xsd:element name="exempt_Amount" type="stns:Exempt_AmountAnonType" nillable="true"/>
+			<xsd:element name="tax_Amount" type="stns:Tax_AmountAnonType" nillable="true"/>
+			<xsd:element name="tax_Level" type="xsd:string" nillable="true"/>
+			<xsd:element name="tax_Level_Value" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Transaction_TaxType">
+		<xsd:sequence>
+			<xsd:element name="tax_Amount_Doc" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="tax_Amount_Loc" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Vend_Establishment_AddressAnonType">
+		<xsd:sequence>
+			<xsd:element name="tax_Auth_Vest" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_City" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Country" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Countyc" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Countyn" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_District" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Statec" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Staten" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Street" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Zipcode" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Vend_RegistrationAnonType">
+		<xsd:sequence>
+			<xsd:element name="vend_City_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Cnty_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Country_Reg" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Reg_Chk" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_State_Reg" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Vend_Tax_ExemptionAnonType">
+		<xsd:sequence>
+			<xsd:element name="certificate_Details" type="stns:Certificate_DetailsVenderType" nillable="true"/>
+			<xsd:element name="exemption_Details" type="stns:Exemption_DetailsVenderType" nillable="true"/>
+			<xsd:element name="vendor_Tax_Cat" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Tax_St" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Vend_Tax_RegistrationAnonType">
+		<xsd:sequence>
+			<xsd:element name="vend_Tax_Regno" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Tax_L1" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Tax_L2" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Tax_L3" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VendorHeaderType">
+		<xsd:sequence>
+			<xsd:element name="bill_From_Address" type="stns:Bill_From_AddressType" nillable="true"/>
+			<xsd:element name="calculation_Brid" type="xsd:string" nillable="true"/>
+			<xsd:element name="mycomp_If_Vend" type="xsd:string" nillable="true"/>
+			<xsd:element name="sales_Orga" type="xsd:string" nillable="true"/>
+			<xsd:element name="special_Tax_Rates" type="stns:Special_Tax_RatesVenderType" nillable="true"/>
+			<xsd:element name="vend_Eco_Activ" type="xsd:string" nillable="true"/>
+			<xsd:element name="vend_Establishment_Address" type="stns:Vend_Establishment_AddressAnonType" nillable="true"/>
+			<xsd:element name="vend_Registration" type="stns:Vend_RegistrationAnonType" nillable="true"/>
+			<xsd:element name="vend_Tax_Exemption" type="stns:Vend_Tax_ExemptionAnonType" nillable="true"/>
+			<xsd:element name="vend_Tax_Registration" type="stns:Vend_Tax_RegistrationAnonType" nillable="true"/>
+			<xsd:element name="vendor_Name" type="xsd:string" nillable="true"/>
+			<xsd:element name="vendor_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="vest_Add" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VendorLineType">
+		<xsd:sequence>
+			<xsd:element name="perform_At" type="stns:Perform_AtAnonType" nillable="true"/>
+			<xsd:element name="ship_From" type="stns:Ship_FromAnonType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Withholding_TaxesAnonType">
+		<xsd:sequence>
+			<xsd:element name="wht_Amt" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="wht_Base_Amt" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="wht_Rate" type="xsd:decimal" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

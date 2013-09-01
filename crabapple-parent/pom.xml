@@ -1,0 +1,686 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.crabapple</groupId>
+  <artifactId>crabapple-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>crabapple parent</name>
+  <url>http://maven.apache.org</url>
+
+  <developers>
+	<developer>
+		<id>steve</id>
+		<name>Steve Yang</name>
+		<email>244weipeng@gmail.com</email>
+		<organization>crabapples</organization>
+		<timezone>8</timezone>
+		<roles>
+			<role>Software Engineer</role>
+		</roles>
+	</developer>
+  </developers>
+  
+  <properties>
+		<filters.base.path.test>src/test/filters</filters.base.path.test>
+		<filters.base.path.main>src/main/filters</filters.base.path.main>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<nexus.home.url>http://localhost:8086/nexus-2.0</nexus.home.url>
+		<crabapple.version>1.0.0-SNAPSHOT</crabapple.version>
+		<spring.groupId>org.springframework</spring.groupId>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.webflow.groupId>org.springframework.webflow</spring.webflow.groupId>
+		<spring.webflow.version>2.3.0.RELEASE</spring.webflow.version>
+		<springSecurity.groupId>org.springframework.security</springSecurity.groupId>
+		<springSecurity.version>3.0.7.RELEASE</springSecurity.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<log4j.version>1.2.14</log4j.version>
+		<logback.version>0.9.24</logback.version>
+		<sqljdbc4.version>4.0.2206.100</sqljdbc4.version>
+		<sqlite.version>3.7.2</sqlite.version>
+		<plugin.cobertura.version>2.4</plugin.cobertura.version>
+		<poi.groupId>org.apache.poi</poi.groupId>
+		<poi.version>3.7</poi.version>
+  </properties>
+
+  
+   <!--
+	预定义依赖项的version,scope与exclusions,子模块中只需定义groupId和artifactId即可 
+	-->
+	<dependencyManagement>
+		<dependencies>
+		    <!-- Test Start -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.8.1</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- EasyMock just for test -->
+			<dependency>
+			  <groupId>org.easymock</groupId>
+			  <artifactId>easymock</artifactId>
+			  <version>3.1</version>
+			  <scope>test</scope>
+			</dependency>
+			<!-- Test End -->
+			<dependency>
+		      <groupId>javax.servlet</groupId>
+		      <artifactId>servlet-api</artifactId>
+		      <version>2.5</version>
+		      <scope>provided</scope>
+		    </dependency>
+		    <!-- Log Start -->
+		    <dependency> 
+		      <groupId>org.slf4j</groupId> 
+		      <artifactId>slf4j-api</artifactId> 
+		      <version>${slf4j.version}</version> 
+		    </dependency> 
+			<dependency> 
+		        <groupId>org.slf4j</groupId> 
+		        <artifactId>slf4j-nop</artifactId> 
+		        <version>${slf4j.version}</version> 
+		    </dependency> 
+			<dependency>
+				<!--  用于覆盖Spring使用 common log  -->
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<!--  提供了异常处理和进入退出的日志接口  -->
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-ext</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- log4j -->
+			<dependency> 
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+			  <groupId>org.slf4j</groupId>
+			  <artifactId>slf4j-log4j12</artifactId>
+			  <version>${slf4j.version}</version>
+			</dependency>
+			<!-- Logback -->
+		    <dependency>
+			  <groupId>ch.qos.logback</groupId>
+			  <artifactId>logback-core</artifactId>
+			  <version>${logback.version}</version>
+			</dependency>
+			<dependency>
+			  <groupId>ch.qos.logback</groupId>
+			  <artifactId>logback-classic</artifactId>
+			  <version>${logback.version}</version>
+			</dependency>
+			<dependency>
+			  <groupId>ch.qos.logback</groupId>
+			  <artifactId>logback-access</artifactId>
+			  <version>${logback.version}</version>
+			</dependency>
+		    <!-- Log End -->
+		    <!-- Spring Start -->
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  spring的所有jar都需要exclude the commons-logging -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			 <dependency>
+		      <groupId>${spring.groupId}</groupId>
+		      <artifactId>spring-aop</artifactId>
+		      <version>${spring.version}</version>
+		    </dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-asm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<!-- 使用Aspectj来编制使用了@Transactional注释的类,以满足self-invocation -->
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-instrument</artifactId>
+				<version>${spring.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<!--
+				 放置在Tomcat的common lib中，并设
+				 <Context path="/myWebApp" docBase="/my/webApp/location"> 
+					<Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader" 
+									useSystemClassLoaderAsParent="false"/> 
+				</Context> 
+				-->
+				<groupId>${spring.groupId}</groupId>
+				<artifactId>spring-instrument-tomcat</artifactId>
+				<version>${spring.version}</version>
+				<scope>provided</scope>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${spring.webflow.groupId}</groupId>
+				<artifactId>spring-webflow</artifactId>
+				<version>${spring.webflow.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${spring.webflow.groupId}</groupId>
+				<artifactId>spring-js</artifactId>
+				<version>${spring.webflow.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${springSecurity.groupId}</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${springSecurity.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<!--
+				 缺少此依赖会抛Unable to locate Spring NamespaceHandler for XML schema namespace异常 
+				-->
+				<groupId>${springSecurity.groupId}</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${springSecurity.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${springSecurity.groupId}</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${springSecurity.version}</version>
+				<!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<!--  支持Annotation，例如jsr250  -->
+				<groupId>${springSecurity.groupId}</groupId>
+				<artifactId>spring-security-core-tiger</artifactId>
+				<version>2.0.7.RELEASE</version>
+				<exclusions>
+					<!--  依赖的spring-security-core版本太低  -->
+					<exclusion>
+						<groupId>${springSecurity.groupId}</groupId>
+						<artifactId>spring-security-core</artifactId>
+					</exclusion>
+				    <!--  使用jcl-over-slf4j.jar替换spring的commons-logging  -->
+					<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>	
+			<!-- Spring End -->
+			
+			<!--  spring validation annotation start  -->
+			<dependency>
+				<!--  此依赖有可能导致与JBOSS服务器使用的版本冲突,需要额外确认JBOSS服务器的版本是否一致  -->
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>4.2.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>1.0.0.GA</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>2.2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>2.2.4</version>
+			</dependency>
+			<!--
+			 以上4个依赖在每次升级时要额外确认是否一致,其中jaxb可能有容器提供,建议使用scope 为 provided 
+			-->
+			<!--  spring validation annotation end  -->
+			
+			<!-- Apache Start -->
+			<dependency>
+				<groupId>${poi.groupId}</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>${poi.groupId}</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- Apache End-->
+			<!-- Apache Commons Start -->
+			<dependency>
+			  <groupId>commons-configuration</groupId>
+			  <artifactId>commons-configuration</artifactId>
+			  <version>1.9</version>
+			</dependency>
+			<dependency>
+			  <groupId>commons-io</groupId>
+			  <artifactId>commons-io</artifactId>
+			  <version>2.4</version>
+			</dependency>
+			<!-- Apache Commons End -->
+			<!-- Database Start -->
+			<dependency>
+				<groupId>microsoft-sqljdbc4</groupId>
+				<artifactId>sqljdbc4</artifactId>
+				<version>${sqljdbc4.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.xerial</groupId>
+				<artifactId>sqlite-jdbc</artifactId>
+				<version>${sqlite.version}</version>
+			</dependency>
+			<!-- Database End-->
+		</dependencies>
+	</dependencyManagement>
+	
+	<!-- run command: mvn deploy, will deploy the snapshots/release into local central nexus repositories -->
+	<distributionManagement>  
+	  <repository>  
+	    <id>nexus-releases</id>  
+      	<name>Nexus Release Repository</name>  
+      	<url>${nexus.home.url}/content/repositories/releases/</url>  
+	  </repository>  
+	  <snapshotRepository>  
+	    <id>nexus-snapshots</id>  
+	    <name>Nexus Snapshot Repository</name>  
+	    <url>${nexus.home.url}/content/repositories/snapshots/</url>  
+	  </snapshotRepository>  
+	</distributionManagement> 
+	
+	<build>
+		<!-- default command: mvn package -->
+		<defaultGoal>package</defaultGoal>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin><!-- mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-jar-plugin 
+					使用此命令显示指定插件的用法时,2.6之前版本会出现中文乱码 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<!-- Should use UTF-8 encode to read java file -->
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<showDeprecations>true</showDeprecations>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<!-- set encoding to something not platform dependent -->
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<!-- dependency plugins -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+			<!-- jar plugin, to set manifest content -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<excludes>
+						<exclude>**/logback-test.xml</exclude>
+					</excludes>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.4</version>
+			</plugin>
+			<!--  surefire插件, 设定单元测试时只执行unit目录下的用例  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<parallel>classes</parallel>
+					<threadCount>2</threadCount>
+					<argLine>-Xmx512M -Dfile.encoding=UTF-8</argLine>
+					<excludedGroups>integration</excludedGroups>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/selenium/*Test.java</exclude>
+					</excludes>
+					<forkMode>once</forkMode>
+					<reportFormat>xml</reportFormat>
+				</configuration>
+				<executions>
+					<execution>
+						<!--  mvn integration-test  -->
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<groups>integration</groups>
+							<includes>
+								<include>**/selenium/*Test.java</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.3.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<reporting>
+		<plugins>
+			<plugin>
+				<!--  单元测试详细报表  -->
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>surefire-report-maven-plugin</artifactId>
+				<version>2.0-beta-1</version>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>com.google.testability-explorer</groupId>
+				<artifactId>maven-testability-plugin</artifactId>
+				<version>1.3.3</version>
+			</plugin>
+			<plugin>
+				<!--  生成包含标注上@todo或TODO的项目的列表  -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<tags>
+						<tag>TODO</tag>
+						<tag>@todo</tag>
+						<tag>FIXME</tag>
+						<tag>XXX</tag>
+					</tags>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<updateReleaseInfo>true</updateReleaseInfo>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<profiles>
+		<!-- DEV -->
+		<profile>
+			<id>dev</id>
+			<build>
+				<filters>
+					<filter>${filters.base.path.test}/dev.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<!-- ITG -->
+		<profile>
+			<id>itg</id>
+			<build>
+				<filters>
+					<filter>${filters.base.path.main}/itg-filter.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<!-- PRO -->
+		<profile>
+			<id>pro</id>
+			<build>
+				<filters>
+					<filter>${filters.base.path.main}/pro-filter.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<!-- Jenkins by default defines a property BUILD_NUMBER which is used to enable the profile. -->
+        <profile>
+            <id>jenkins</id>
+            <activation>
+                <property>
+                    <name>env.BUILD_NUMBER</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>cobertura-maven-plugin</artifactId>
+                            <version>${plugin.cobertura.version}</version>
+                            <configuration>
+                                <formats>
+                                    <format>xml</format>
+                                </formats>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>cobertura</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+	</profiles>
+   <!-- 	 
+   Reporting
+    <reporting>
+      <plugins>
+         cobertura, code coverage
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>cobertura-maven-plugin</artifactId>
+            <version>${plugin.cobertura.version}</version>
+            <configuration>
+               <formats>
+                  <format>xml</format>
+               </formats>
+            </configuration>
+         </plugin>
+      </plugins>
+     </reporting> -->
+
+</project>

@@ -1,0 +1,125 @@
+
+## Create By Steve Yang, 2012-12-11
+## 记录使用XMLbeans时流程及实践说明  --> 实践目录: 
+
+1. XMLbeans根据wstax-t2.xsd生成T2DataModelA03.jar(即T2DM的Java类)
+   (1). 本机配置: JDK=1.6.20, XMLBeans=2.5.0
+                      配置环境变量: XMLBEANS_HOME=C:\Apache\xmlbeans-2.5.0\lib
+                      在PATH中添加: %XMLBEANS_HOME%\bin;
+                      在CLASSPATH中添加:%XMLBEANS_HOME%\lib
+   (2). scomp -out T2DataModelA03.jar wstax3_t2.xsd
+   (3). 配置环境变量,  -->参考网页资料: XMLBeans使用总结,http://youlong05.iteye.com/blog/87324
+   
+2. 实践中的错误:
+   (1). 命令: scomp -out T2DataModelA03.jar wstax3_t2.xsd
+                      配置: 只有1中的(1).  
+                      错误信息:
+            C:\Apache\xmlbeans-2.5.0\bin>scomp -out T2DataModelA03.jar wstax3_t2.xsd
+			C:\Apache\xmlbeans-2.5.0\bin\wstax3_t2.xsd:3209:4: error: src-resolve: type 'Array@http://schemas.xmlsoap.org/soap/encoding/' not found.
+			C:\Apache\xmlbeans-2.5.0\bin\wstax3_t2.xsd:3210:5: error: src-resolve: attribute 'arrayType@http://schemas.xmlsoap.org/soap/encoding/' not found.
+			Time to build schema type system: 1.108 seconds
+			BUILD FAILED
+		解决方案一:
+		         在wstax_t2.xsd文件中的<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"> 中添加schemaLocation属性,
+		         即:<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"/>
+		         说明: 由于网络原因, 在HP办公室内部,无法下载该文件, 故而需要使用另一种方案.
+		解决方案二:
+		    <1>. 命令: sdownload "http://schemas.xmlsoap.org/soap/encoding/" 
+		    <2>. 命令: scomp -out T2DataModelA03.jar -catalog xsdownload.xml(命令<1>生成的默认文件) wstax3_t2.xsd
+		           命令<1>.报错: IO Error java.net.ConnectException: Connection timed out: connect
+                               还是网络连接问题.  
+                解决方案三:
+            <1>. 下载http://schemas.xmlsoap.org/soap/encoding/,命名为encoding.xsd
+            <2>. 修改文件wstax3_t2.xsd, <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="encoding.xsd" />
+            <3>. 命令:scomp -out T2DataModelA03.jar wstax3_t2.xsd, 成功.
+            <4>. 需要注意的是xsd所在路径.
+            <5>. scomp -d .\classes -src .\src -out .\T2DataModelA03.jar .\wstax3_t2.xsd --> 会生成class和java文件
+            <6>. 方案三命令中的警告:
+            	 encoding.xsd:399:3: warning: id-idref-idrefs-entity-entities-notation: For compatibility, type 'ENTITIES' should only be used 
+            	 for attributes (used for element 'ENTITIES@http://schemas.xmlsoap.org/soap/encoding/').
+            
+	(2).   
+
+
+## 以下的内容是自己2月份实践资料 -- 后进行整理修改
+## 2012-2-8 下午2点 
+3. 阅读网页资料: http://www.ibm.com/developerworks/cn/xml/x-pracdb1.html
+        文章名: 使用数据绑定: 涉入现实世界
+        需要了解: 1. 何为数据绑定
+        	2. 编组(Marshalling) 是把内存中的数据转化到存储媒介上的过程
+            3. 解组（Unmarshalling）是把数据从存储媒介转换到内存中的过程--正好与编组相反
+            4. 往返(Round-tripping) 用于描述从存储媒介到内存然后回到存储媒介的完整循环。
+            5. 语义等价
+
+
+4. XmlBeans核心概念 
+   XMLBeans包含三套API，或者说三套用来操纵XML数据的机制：
+   1. XML Cursor: XMLBeans实现为底层的XML文档提供了一种类似DOM的简单树状导航API，它甚至在XML Schema (xsd 文件)没被编译的情况下也能使用。
+   2. JavaBeans: 通过schema编译器的处理，一组XML Schema (xsd文件)，通常被称为XSD类型系统，将会生成一组对应的Java 类和接口，
+	     这种对应关系是一对一的(一种XSD类型对应一种Java类型（或接口）)。所有的schema 类型都继承自基类XmlObject。值得一提的是
+	  XMLBeans 对象是可序列化的，因此它们可以跨越RMI边界进行传输。同Java内置的反射功能类似，XMLBeans 也提供从类反射到XSD Schema类型的功能。
+   3. XQuery: 借助Apache Xerces2，XMLBeans通过运行基于XQuery的查询，提供了针对特定数据的XML查询功能。 
+	
+	XMLBeans与其它Java绑定技术,比如JAXB和Castor的不同之处在于：
+	(1). XMLBeans同时支持两种同步XML访问模型: 一种针对底层XML内容，一种针对强类型的Java类。
+	(2). XMLBeans的一个主要目标是为XML Schema的全部特性及功能提供100%的支持。
+	   
+
+## Add By Steve Yang, 2012-6-1
+## 在WsTax Tools小项目中, 出现Java对象和XML文件转换问题.
+## 1, 本身的wsTax项目中的相关对象(如,TaxRequest,TaxResult)为POJO类, 要将XML文件转化为Java对象, 可以使用XStream工具类,
+##    但是, 需要将类名属性名和相应的XML节点名对应,比较麻烦. 故而希望找一种比较容易的方式来实现.---> 需要用到Schema文件wstax.xsd
+##    而可以使用XMLBeans工具类实现, 但是问题在于: 利用XMLBeans工具类生成的TaxRequest,TaxResult等对象不是POJO对象,而通过RPC方式
+##    调用WebService的方式中的方法RPCServiceClient.invokeblocking(QName,Object[],Class[]),第三个参数其类型需要通过TaxResult.class
+##    组装数组来实现, 编译报错: 
+##        org.apache.xmlbeans.impl.values.XmlValueNotSupportedException: Could not get a Java Date type from a Schema complex type  	
+## 2, wstax81项目中的T2 data model相关实体类,不是POJO类,而是根据xmlbeans工具生成的.
+##
+##    
+5.实践
+  (1). scomp命令根据xsd文件生成Java类	--- 参见C:/Apache/xmlbeans/bin/wstax目录
+                  如: scomp -compiler %JAVA_HOME%\bin\javac wstax.xsdconfig -out wstax.jar wstax.xsd 
+	     scomp -compiler %JAVA_HOME%\bin\javac wstax.xsdconfig -out wstax.jar -src c:\apache\wstax wstax.xsd 
+	     scomp -compiler %JAVA_HOME%\bin\javac wstax3_t2.xsdconfig -out wstax_t2.jar wstax3_t2.xsd 
+	     scomp -compiler %JAVA_HOME%\bin\javac wstax3_t2.xsdconfig -srconly . wstax3_t2.xsd 
+		   但是报错: scomp error: src-resolve:type 'Array@http://schemas.xmlsoap.org/soap/encoding/' not found 
+		   原始wstax.xsd文件中含有soapenc:array类型, 估计不支持.
+		   解决方案: <1>. 故而修改文件,修改相关元素(可比较wstax.xsd和wstax_原始文件.xsd)
+		           <2>. 参考本文件中的 <2,实践中的错误>
+		 
+	(2).
+		
+7. XMLBeans命令:
+   scomp是XMLBean提供的一个编译工具,它在bin的目录下. 通过这个工具,我们可以将以上的Schema文件生成Java Classes.
+   scomp的语法如下: scomp [options] [dirs]* [schema.xsd]* [service.wsdl]* [config.xsdconfig]*
+       主要参数说明: 
+       schemaFile.xsd -- XML Schema文件位置
+       config.xsdconfig -- xsdconfig文件的位置, 这个文件主要用来制定生成的Java Class的一些文件名规则和Package的名称
+   (1).scomp -help:
+	   Compiles a schema into XML Bean classes and metadata.
+	Usage: scomp [opts] [dirs]* [schema.xsd]* [service.wsdl]* [config.xsdconfig]*
+	Options include:
+	    -cp [a;b;c] - classpath                                          Java编译器的路径,即Javac的位置(如果未配置环境变量,则需要使用该参数)
+	    -d [dir] - target binary directory for .class and .xsb files
+	    -src [dir] - target directory for generated .java files          生成的Java files存放目录
+	    -srconly - do not compile .java files or jar the output.         不编译Java Classes,不产生Jar文件	
+	    -out [xmltypes.jar] - the name of the output jar                 生成的Jar文件,缺省是xmltypes.jar   
+	    -dl - permit network downloads for imports and includes (default is off)
+	    -noupa - do not enforce the unique particle attribution rule
+	    -nopvr - do not enforce the particle valid (restriction) rule
+	    -noann - ignore annotations
+	    -novdoc - do not validate contents of <documentation>
+	    -noext - ignore all extension (Pre/Post and Interface) found in .xsdconfig files
+	    -compiler - path to external java compiler
+	    -javasource [version] - generate java source compatible for a Java version (1.4 or 1.5)
+	    -ms - initial memory for external java compiler (default '8m')
+	    -mx - maximum memory for external java compiler (default '256m')
+	    -debug - compile with debug symbols
+	    -quiet - print fewer informational messages
+	    -verbose - print more informational messages
+	    -version - prints version information
+	    -license - prints license information
+	    -allowmdef "[ns] [ns] [ns]" - ignores multiple defs in given namespaces (use ##local for no-namespace)
+	    -catalog [file] -  catalog file for org.apache.xml.resolver.tools.CatalogResolver. 
+	             (Note: needs resolver.jar from http://xml.apache.org/commons/components/resolver/index.html)
+	       	     
