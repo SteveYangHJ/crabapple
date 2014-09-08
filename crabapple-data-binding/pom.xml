@@ -1,89 +1,85 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
 	<groupId>org.crabapple</groupId>
 	<artifactId>crabapple-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>org.crabapple</groupId>
   <artifactId>crabapple-data-binding</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>crabapple-data-binding</name>
-  <url>http://maven.apache.org</url>
-  
-  <properties>
- 	 <xmlbeans-version>2.5.0</xmlbeans-version>
-  </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-    <!-- logger -->
 	<dependency>
-	   <groupId>log4j</groupId>
-	   <artifactId>log4j</artifactId>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.slf4j</groupId>
-	  <artifactId>slf4j-log4j12</artifactId>
-	</dependency> 
-	 <dependency> 
-      <groupId>org.slf4j</groupId> 
-      <artifactId>slf4j-api</artifactId> 
-    </dependency> 
-    <!-- xstream -->
-    <dependency>
-	  <groupId>com.thoughtworks.xstream</groupId>
-	  <artifactId>xstream</artifactId>
-	  <version>1.4.2</version>
+		<groupId>org.crabapple</groupId>
+		<artifactId>crabapple-utils</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</dependency>
-   <!-- xmlbeans  -->
+	<!-- Unit Test -->
 	<dependency>
-	  <groupId>org.apache.xmlbeans</groupId>
-	  <artifactId>xmlbeans</artifactId>
-	  <version>${xmlbeans-version}</version>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+	</dependency>
+	<!-- logger -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+	</dependency>
+	<!-- xstream -->
+	<dependency>
+		<groupId>com.thoughtworks.xstream</groupId>
+		<artifactId>xstream</artifactId>
+		<version>1.4.2</version>
+	</dependency>
+	
+	<!-- xmlbeans -->
+	<dependency>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans</artifactId>
 	</dependency>
 	<dependency>
-	  <groupId>org.apache.xmlbeans</groupId>
-	  <artifactId>xmlbeans-qname</artifactId>
-	  <version>${xmlbeans-version}</version>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans-qname</artifactId>
 	</dependency>
 	<dependency>
-	  <groupId>org.apache.xmlbeans</groupId>
-	  <artifactId>xmlbeans-xpath</artifactId>
-	  <version>${xmlbeans-version}</version>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans-xmlpublic</artifactId>
 	</dependency>
 	<dependency>
-	  <groupId>org.apache.xmlbeans</groupId>
-	  <artifactId>xmlbeans-xmlpublic</artifactId>
-	  <version>${xmlbeans-version}</version>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans-xpath</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>wsdl4j</groupId>
+		<artifactId>wsdl4j</artifactId>
+		<version>1.5.1</version>
 	</dependency>
 	<dependency>
-	  <groupId>javax.xml</groupId>
-	  <artifactId>jsr173</artifactId>
-	  <version>1.0</version>
+		<groupId>javax.xml</groupId>
+		<artifactId>jsr173</artifactId>
+		<version>1.0</version>
 	</dependency>
 	<dependency>
-	  <groupId>net.sf.saxon</groupId>
-	  <artifactId>saxon</artifactId>
-	  <version>8.7</version>
+		<groupId>net.sf.saxon</groupId>
+		<artifactId>saxon</artifactId>
+		<version>8.7</version>
 	</dependency>
 	<!-- Castor -->
 	<dependency>
-	  <groupId>org.codehaus.castor</groupId>
-	  <artifactId>castor-xml</artifactId>
-	  <version>1.3.2</version>
+		<groupId>org.codehaus.castor</groupId>
+		<artifactId>castor-xml</artifactId>
+		<version>1.3.2</version>
 	</dependency>
 	<!-- JSON jar -->
 	<dependency>
-	  <groupId>org.codehaus.jackson</groupId>
-	  <artifactId>jackson-mapper-asl</artifactId>
-	  <version>1.4.2</version>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.4.2</version>
 	</dependency>
-  </dependencies>
+	
+</dependencies>
 </project>

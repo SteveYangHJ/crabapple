@@ -24,8 +24,8 @@ public class XML2JavaGenerator {
 	/**
 	 * @Title: unmarshal
 	 * @Description: unmarshal XML to Java object
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2012-12-18 PM. 03:13:11 
 	 * @param contextPath  list of java package names that contain schema 
 	 *                     derived class and/or java to schema (JAXB-annotated) mapped classes
@@ -43,8 +43,8 @@ public class XML2JavaGenerator {
 	/**
 	 * @Title: unmarshal
 	 * @Description: unmarshal XML to Java object
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2012-12-18 PM. 03:13:11 
 	 * @param contextPath  list of java package names that contain schema 
 	 *                     derived class and/or java to schema (JAXB-annotated) mapped classes
@@ -62,8 +62,8 @@ public class XML2JavaGenerator {
 	/**
 	 * @Title: unmarshal
 	 * @Description: unmarshal XML to Java object
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2013-08-27 PM. 17:13:11 
 	 * @param clazz  The class XML will unmarshal to
 	 * @param reader  reader to save XML data
@@ -80,8 +80,8 @@ public class XML2JavaGenerator {
 	/**
 	 * @Title: unmarshal
 	 * @Description: unmarshal XML to Java object
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2013-08-27 PM. 17:13:11 
 	 * @param clazz  The class XML will unmarshal to
 	 * @param content  XML date
@@ -127,7 +127,7 @@ public class XML2JavaGenerator {
 	/**
 	 * @Description 
 	 * 		If the Object is POJO, and DO NOT have ObjectFactory.java class, you should use this method
-	 * @author Steve Yang (wei-peng.yang@hp.com)
+	 * @author Steve Yang (244weipeng@163.com)
 	 * @Date 2013-08-22 14:22:00 PM
 	 * @param Clazzs  Class array
 	 * @param obj     Object need to be marshal to XML data

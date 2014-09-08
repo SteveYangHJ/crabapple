@@ -2,8 +2,8 @@
  * @Title: FileUtilsTest.java 
  * @Package com.hp.it.wstax.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-28 PM. 4:32:37 
  * @version V1.0   
  */
@@ -27,8 +27,8 @@ import junit.framework.Assert;
 /** 
  * @ClassName: FileUtilsTest 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-28 PM. 4:32:37 
  */
 public class CommonFileUtilsTest {

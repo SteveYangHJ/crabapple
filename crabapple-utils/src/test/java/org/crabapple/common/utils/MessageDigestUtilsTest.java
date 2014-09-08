@@ -2,8 +2,8 @@
  * @Title: MessageDigestUtilsTest.java 
  * @Package com.hp.it.wstax.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Jun 11, 2013 10:41:21 AM 
  * @version V1.0   
  */
@@ -18,8 +18,8 @@ import org.junit.Test;
 /**
  * @ClassName: MessageDigestUtilsTest 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Jun 11, 2013 10:41:21 AM 
  */
 public class MessageDigestUtilsTest {

@@ -16,7 +16,7 @@ public class XML2JavaGenerator {
 	
 	/**
 	 * @Description marshal object to XML data
-	 * @author Steve Yang (wei-peng.yang@hp.com)
+	 * @author Steve Yang (244weipeng@163.com)
 	 * @Date 2013-08-20 11:16:00 AM
 	 * @param object  object to be marshaled
 	 * @return string  XML data
@@ -31,7 +31,7 @@ public class XML2JavaGenerator {
 	
 	/**
 	 * @Description marshal object to XML data
-	 * @author Steve Yang (wei-peng.yang@hp.com)
+	 * @author Steve Yang (244weipeng@163.com)
 	 * @Date 2013-08-20 11:16:00 AM
 	 * @param object  object to be marshaled
 	 * @param mapping  Mapping object, define the rules of marshal
@@ -52,7 +52,7 @@ public class XML2JavaGenerator {
 	
 	/**
 	 * @Description marshal object to XML data
-	 * @author Steve Yang (wei-peng.yang@hp.com)
+	 * @author Steve Yang (244weipeng@163.com)
 	 * @Date 2013-08-20 11:16:00 AM
 	 * @param clazz  the class of object which is unmarshaled from XML data
 	 * @param content  XML data
@@ -67,7 +67,7 @@ public class XML2JavaGenerator {
 	
 	/**
 	 * @Description marshal object to XML data
-	 * @author Steve Yang (wei-peng.yang@hp.com)
+	 * @author Steve Yang (244weipeng@163.com)
 	 * @Date 2013-08-20 11:16:00 AM
 	 * @param clazz  the class of object which is unmarshaled from XML data
 	 * @param content  XML data

@@ -2,8 +2,8 @@
  * @Title: FileUtils.java 
  * @Package com.hp.it.wstax.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-28 PM. 4:23:00 
  * @version V1.0   
  */
@@ -25,20 +25,19 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 /** 
  * @ClassName: FileUtils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-28 PM. 4:23:00 
  */
 public class CommonFileUtils {
-	private static final Logger logger = LoggerFactory.getLogger(CommonFileUtils.class);
+	private static final Logger logger = Logger.getLogger(CommonFileUtils.class);
 	
 	/**
 	 * @Fields DEFAULT_FILE_EXTENSION_SPLIT : default file name extension split
@@ -49,8 +48,8 @@ public class CommonFileUtils {
 	 * @Title: getContentFromFile
 	 * @Description: 
 	 * 		Get the content of the file
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2013-1-28 PM. 4:23:00  
 	 * @param filePath, file path, could be located relative path in classapth or absolute path
 	 * @return content, if file is not exist, content is null
@@ -69,8 +68,8 @@ public class CommonFileUtils {
 	 * @Title: getFileByFilePath
 	 * @Description: 
 	 * 		Get the File object according to the file path
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2013-1-30  PM. 4:19:28 
 	 * @param filePath, file path, could be located relative path in classapth or absolute path
 	 * @return File object, if file path is empty, then file is null,
@@ -96,8 +95,8 @@ public class CommonFileUtils {
 	 * @Title: getResourceURL
 	 * @Description: 
 	 * 		Get the File URL according to the file path
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Feb 22, 2013 11:09:09 AM 
 	 * @param filePath, file path, could be located relative path in classapth
 	 * @return URL, if file path is empty or not exists, then URL is null,
@@ -119,8 +118,8 @@ public class CommonFileUtils {
 	 * @Title: getSource
 	 * @Description: 
 	 * 		Get the File source according to the file path
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Feb 22, 2013 11:06:53 AM 
 	 * @param filePath, file path, could be located relative path in classapth
 	 * @return Source, if file path is empty or not exists, then Source is null,
@@ -142,8 +141,8 @@ public class CommonFileUtils {
 	 * @Title: createNewFile
 	 * @Description:
 	 * 		Create new file by the file path
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Feb 28, 2013 1:47:15 PM 
 	 * @param file
 	 * @throws IOException
@@ -171,8 +170,8 @@ public class CommonFileUtils {
 	 * @Title: getInputStreamByFilePath
 	 * @Description: 
 	 * 		Get InputStream by filePath
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Mar 5, 2013 9:02:34 PM 
 	 * @param filePath
 	 * @return
@@ -205,8 +204,8 @@ public class CommonFileUtils {
 	 * 		1, fileName = "example.txt", extension is '.txt'
 	 * 		2, fileName = "example", extension is null
 	 * 		3, fileName = "example", extension is null
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Mar 8, 2013 12:38:44 PM 
 	 * @param fileName
 	 * @param split, default is '.'
@@ -224,8 +223,8 @@ public class CommonFileUtils {
 	/**
 	 * @Title: writeIntoFile
 	 * @Description: TODO
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Jun 11, 2013 11:15:30 AM 
 	 * @param content, the data need to be writed to file
 	 * @param filePath, file absolutely full path

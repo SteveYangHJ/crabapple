@@ -2,8 +2,8 @@
  * @Title: MessageDigestUtils.java 
  * @Package com.hp.it.wstax.adapter.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Jun 6, 2013 11:32:59 AM 
  * @version V1.0   
  */
@@ -15,8 +15,8 @@ import java.security.NoSuchAlgorithmException;
 /**
  * @ClassName: MessageDigestUtils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Jun 6, 2013 11:32:59 AM 
  */
 public class MessageDigestUtils {
@@ -30,8 +30,8 @@ public class MessageDigestUtils {
 	 * @Title: encodeByMD5ToHexString
 	 * @Description: 
 	 * 		encode the source through MD5 encryption algorithm to Hex String data
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Jun 6, 2013 10:21:26 AM 
 	 * @param sourceDigest, source data which need to be encrypted
 	 * @return destDigest, the encrypted string data
@@ -46,8 +46,8 @@ public class MessageDigestUtils {
 	 * @Title: encodeToHexString
 	 * @Description: 
 	 * 		encode the source through one encryption algorithm to Hex String data
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Jun 6, 2013 1:29:55 PM 
 	 * @param sourceDigest, source data which need to be encrypted
 	 * @param algorithm, encryption algorithm, e.g. "MD5", "SHA"....

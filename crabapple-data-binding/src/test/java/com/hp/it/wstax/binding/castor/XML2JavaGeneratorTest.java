@@ -3,19 +3,24 @@ package com.hp.it.wstax.binding.castor;
 import java.io.IOException;
 import java.text.ParseException;
 
+
+import org.crabapple.binding.castor.XML2JavaGenerator;
+import org.crabapple.binding.model.Article;
+import org.crabapple.binding.model.Customer;
+import org.crabapple.binding.model.manager.ModelInitializer;
+import org.crabapple.common.utils.file.CommonFileUtils;
 import org.exolab.castor.mapping.Mapping;
 import org.exolab.castor.mapping.MappingException;
 import org.exolab.castor.xml.MarshalException;
 import org.exolab.castor.xml.ValidationException;
 import org.junit.Assert;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
+import org.apache.log4j.Logger;
 
 
 public class XML2JavaGeneratorTest {
-	private static final Logger logger = LoggerFactory.getLogger(XML2JavaGeneratorTest.class);
+	private static final Logger logger = Logger.getLogger(XML2JavaGeneratorTest.class);
 	
 	@Test
 	public void testMarshal() throws ParseException, MarshalException, ValidationException, IOException, MappingException{

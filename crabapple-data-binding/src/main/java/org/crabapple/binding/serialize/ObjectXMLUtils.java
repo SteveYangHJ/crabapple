@@ -8,7 +8,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.hp.wwops.ecommerce.service.entity.wstax3.TaxRequest;
 
 public class ObjectXMLUtils {
 	private static final Logger logger = Logger.getLogger(ObjectXMLUtils.class);
@@ -97,10 +96,6 @@ public class ObjectXMLUtils {
 	}
 	
 	public static void main(String[] args) throws IllegalArgumentException, SecurityException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-//		TaxRequest request = TaxRequestUtils.initializeTaxRequest();
-//		String xml = convertToXML(request);
-//		System.out.println(xml);
-
 //		String xml = convertToXML(customer);
 //		System.out.println(xml);
 		

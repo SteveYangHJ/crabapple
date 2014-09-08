@@ -6,12 +6,12 @@ import java.text.ParseException;
 import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
+import org.crabapple.binding.jaxb.XML2JavaGenerator;
+import org.crabapple.binding.model.Address;
+import org.crabapple.binding.model.Article;
+import org.crabapple.binding.model.Customer;
+import org.crabapple.binding.model.manager.ModelInitializer;
 import org.junit.Test;
-
-import com.hp.it.wstax.binding.model.Address;
-import com.hp.it.wstax.binding.model.Article;
-import com.hp.it.wstax.binding.model.Customer;
-import com.hp.it.wstax.binding.model.manager.ModelInitializer;
 
 
 public class Xml2JavaGeneratorTest {

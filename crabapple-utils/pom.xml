@@ -6,13 +6,11 @@
 	<artifactId>crabapple-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>org.crabapple</groupId>
   <artifactId>crabapple-utils</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>crabapple-utils</name>
-  <url>http://maven.apache.org</url>
 
   <dependencies>
     <dependency>
@@ -25,14 +23,6 @@
 	   <artifactId>log4j</artifactId>
 	   <scope>provided</scope>
 	 </dependency>
-	 <dependency>
-	  <groupId>org.slf4j</groupId>
-	  <artifactId>slf4j-log4j12</artifactId>
-	</dependency>
-	 <dependency> 
-      <groupId>org.slf4j</groupId> 
-      <artifactId>slf4j-api</artifactId> 
-    </dependency> 
 	 <!-- Spring -->
 	 <dependency>
 	   <groupId>org.springframework</groupId>
@@ -48,10 +38,5 @@
 	  	<artifactId>commons-io</artifactId>
 	 </dependency>
 	<!-- Apache Commons End -->
-	<dependency>
-		<groupId>dom4j</groupId>
-		<artifactId>dom4j</artifactId>
-		<version>1.6.1</version>
-	</dependency>
   </dependencies>
 </project>

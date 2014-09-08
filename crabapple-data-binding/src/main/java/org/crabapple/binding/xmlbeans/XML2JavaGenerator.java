@@ -2,8 +2,8 @@
  * @Title: XML2JavaGenerator.java 
  * @Package com.hp.steve.common.xmlbeans 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2012-12-11 上午11:09:59 
  * @version V1.0   
  */
@@ -14,23 +14,22 @@ import java.util.*;
 import javax.wsdl.Definition;
 import javax.wsdl.extensions.schema.Schema;
 
+import org.apache.log4j.Logger;
 import org.apache.xmlbeans.SchemaTypeSystem;
 import org.apache.xmlbeans.XmlBeans;
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
  /** 
  * @ClassName: XML2JavaGenerator 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2012-12-11 上午11:09:59 
  */
 public class XML2JavaGenerator {
-	private static Logger logger = LoggerFactory.getLogger(XML2JavaGenerator.class);
+	private static Logger logger = Logger.getLogger(XML2JavaGenerator.class);
 	
 	public static SchemaTypeSystem compileSchema(Definition def) { 
 		logger.info("");
@@ -59,20 +58,15 @@ public class XML2JavaGenerator {
             //xmlopts.setSaveNamespacesFirst();
             Iterator it = schematas.iterator();
             while (it.hasNext()) {
-
                 Schema si = (Schema) it.next();
-
                 //addAdditionalNamespaces(si, nsDefs); 
-
                 try {
                     logger.info("Parsing Schema: " + si.getDocumentBaseURI());
-
                     xmloa[i++] = XmlObject.Factory.parse(si.getElement(), xmlopts); 
                 } catch (XmlException e) {
                 	logger.info("compileSchema: Error parsing schema: " + si.getDocumentBaseURI(), e);
                     //throw new XmlException("compileSchema: Error parsing schema: " + si.getDocumentBaseURI(), e);
                 }
-
             }
 
             try {

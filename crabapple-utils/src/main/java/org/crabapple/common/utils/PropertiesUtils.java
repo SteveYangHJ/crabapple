@@ -2,8 +2,8 @@
  * @Title: PropertiesUtils.java 
  * @Package com.hp.it.wstax.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-29 PM. 6:12:42 
  * @version V1.0   
  */
@@ -17,20 +17,19 @@ import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.crabapple.common.utils.file.CommonFileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /** 
  * @ClassName: PropertiesUtils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date 2013-1-29 PM. 6:12:42 
  */
 public class PropertiesUtils {
-	private static final Logger logger =  LoggerFactory.getLogger(PropertiesUtils.class);
+	private static final Logger logger =  Logger.getLogger(PropertiesUtils.class);
 	public static final String DEFAULT_FILE_EXTENSION = ".properties";
 	private String fileExtension = DEFAULT_FILE_EXTENSION;
 	
@@ -46,8 +45,8 @@ public class PropertiesUtils {
 	 * @Description: 
 	 * 		Load properties file by its file path which it could be absolutely path or classpath
 	 *      
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date Mar 8, 2013 11:25:20 AM 
 	 * @param propertiesFilePath, property file path, 
 	 */
@@ -67,8 +66,8 @@ public class PropertiesUtils {
 	 * @Title: getValuesByKey
 	 * @Description: 
 	 * 		get value by the key configured in properties file
-	 * @author Yang, Wei-Peng(Steve, HPIT-DS)
-	 * @email wei-peng.yang@hp.com
+	 * @author Yang, Wei-Peng
+	 * @email 244weipeng@163.com
 	 * @date 2013-1-29 PM. 6:25:15 
 	 * @param key
 	 * @return

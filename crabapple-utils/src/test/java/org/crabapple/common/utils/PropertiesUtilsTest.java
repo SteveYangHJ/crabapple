@@ -2,8 +2,8 @@
  * @Title: PropertiesUtils.java 
  * @Package com.hp.it.wstax.common.utils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Mar 4, 2013 4:37:54 PM 
  * @version V1.0   
  */
@@ -18,8 +18,8 @@ import org.junit.Test;
 /** 
  * @ClassName: PropertiesUtils 
  * @Description: TODO
- * @author Yang, Wei-Peng(Steve, HPIT-DS)
- * @email wei-peng.yang@hp.com
+ * @author Yang, Wei-Peng
+ * @email 244weipeng@163.com
  * @date Mar 4, 2013 4:37:54 PM 
  */
 public class PropertiesUtilsTest {
