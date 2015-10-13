@@ -1,12 +1,4 @@
-/**
- * @Title: MessageDigestUtilsTest.java 
- * @Package com.hp.it.wstax.common.utils 
- * @Description: TODO
- * @author Yang, Wei-Peng
- * @email 244weipeng@163.com
- * @date Jun 11, 2013 10:41:21 AM 
- * @version V1.0   
- */
+
 package org.crabapple.common.utils;
 
 import java.security.NoSuchAlgorithmException;

@@ -18,6 +18,7 @@ import java.util.Properties;
 import javax.xml.transform.Source;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.crabapple.common.utils.file.CommonFileUtils;
 import org.junit.Test;
 
@@ -32,6 +33,7 @@ import junit.framework.Assert;
  * @date 2013-1-28 PM. 4:32:37 
  */
 public class CommonFileUtilsTest {
+	private Logger logger = Logger.getLogger(getClass());
 	public static final String EXISTS_FILE_PATH = "adapter/test.xml";
 	public static final String EMPTY_FILE_PATH = "";
 	public static final String NOEXISTS_FILE_PATH = "c:/opt/test_not_exist.xml";
@@ -197,17 +199,12 @@ public class CommonFileUtilsTest {
 	
 	@Test
 	public void testWriteContentIntoFile() throws IOException{
-		String filePath = null;
 		String fileName = "utils-test.txt";
-		if(isWindowsOS()){
-			filePath = "G:/GitHub/crabapple/crabapple-utils/" + fileName;
-		}else{
-			filePath = "/home/root/test/" + fileName;
-		}
+		String filePath = CommonFileUtilsTest.class.getResource("/").getPath() + fileName;
+		logger.debug(filePath);
 		File file = CommonFileUtils.writeContentIntoFile("content", filePath, true);
 		Assert.assertNotNull(file);
 		Assert.assertTrue(file.exists());
-		
 		file.delete();
 	}
 	

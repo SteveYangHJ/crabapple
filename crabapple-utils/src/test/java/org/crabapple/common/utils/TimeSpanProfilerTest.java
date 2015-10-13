@@ -1,24 +1,11 @@
-/**
- * @Title: wstax-connector
- * @Package com.hp.wstax.adapter.smartlabor
- * @Description: TODO
- * @author Ye, Jie-Bao(Barry, HPIT-DS)
- * @email jie-bao.ye@hp.com
- * @date 2013-2-5PM. 12:59:00
- * @version V1.0
- */
-
 package org.crabapple.common.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-/** 
- * @ClassName: TimeSpanProfilerTest <br/> 
- * @Description: TODO
- * @author Ye, Jie-Bao(Barry, HPIT-DS)
- * @email jie-bao.ye@hp.com
- * @date 2013-2-5 PM. 12:59:00 <br/>
+/**
+ * @author Yang, Wei-Peng (244weipeng@gmail.com)
+ * @date Oct 12, 2015 5:09:52 PM
  */
 public class TimeSpanProfilerTest {
 
