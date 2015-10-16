@@ -5,41 +5,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ClassSample {
+import org.apache.log4j.Logger;
 
-	/**
-	 * @author Yang, Wei-Peng (244weipeng@gmail.com)
-	 * @date Oct 13, 2015 4:45:05 PM
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		ClassSample sample = new ClassSample();
-		//sample.test();
-		//testSixties();
-		sample.testPersonByHash();
-		
-		//
-		sample.go();
-		sample.go1();
-		sample.go2();
-		
-		// TODO:
-		testInteger();
-	}
-	
-	// 1, Test StringBuffer
-	public static void testStringBuffer(){
-		StringBuffer a = new StringBuffer("A");
-		StringBuffer b = new StringBuffer("B");
-		operate(a, b);
-		System.out.println(a + "," + b);
-	}
-	
-	public static void operate(StringBuffer x, StringBuffer y) {
-		x.append(y);
-		y = x;
-		System.out.println(x + "," + y);
-	}
+public class ClassSample {	
+	private static Logger logger = Logger.getLogger(ClassSample.class);
 	
 	// 2, Test Object
 	public void test() {
@@ -78,36 +47,6 @@ public class ClassSample {
 	    System.out.print(" " + (y % x));
 	}
 	
-	// 4, Test Hashcode() 
-	class Person{
-		private String name;
-		Person(String name){
-			this.name = name;
-		}
-		public int hashCode(){
-			return 420;
-		}
-	}
-	
-	public void testPersonByHash(){
-		Person person1 = new Person("Person1");
-		Person person2 = new Person("Person2");
-		// Test HashMap
-		Map<Person,String> personMap = new HashMap<Person,String>();
-		System.out.println(personMap.put(person1, "person1"));
-		personMap.put(person2, "person2");
-		System.out.println(personMap.containsKey(person1));
-		System.out.println(personMap.containsKey(person2));
-		System.out.println(personMap.size());
-		
-		// Test HashSet
-		Set<Person> personSet = new HashSet<Person>();
-		personSet.add(person1);
-		personSet.add(person2);
-		System.out.println(personSet.size());
-		
-	}
-	
 	// 5, Test Synchronized
 	public synchronized void go() { /* code here */ }
 	void go1() {
@@ -118,7 +57,10 @@ public class ClassSample {
 		synchronized(o) { /* code here */ }
 	}
 	
+	// 6, Test Integer, 变量初始化
 	public static void testInteger(){
+		
+		// 1, 数组(基本数据类型 + 包装类)初始化
 		Integer[] integerArray = new Integer[5];
 		int[] intArray = new int[5];
 		Byte[] byteArray = new Byte[5];
@@ -133,6 +75,48 @@ public class ClassSample {
 		System.out.println("charArray[0] = " + charArray[0]);
 		System.out.println("doubleArray[0] = " + doubleArray[0]);
 		System.out.println("floatArray[0] = " + floatArray[0]);
+		
+		// 2, 
+		Integer integer1 = new Integer(3);
+		Integer integer2 = 3; 
+		System.out.println(integer1.equals(integer2));
+	}
+	
+	// Test: Overload main() and equals 
+	public static void testOverload(){
+		main(null, "main()");
+		ClassSample s1 = new ClassSample();
+		ClassSample s2 = new ClassSample();
+		System.out.println(s1.equals(s2));
+		System.out.println(s1.equals());
+	}
+	
+	public static void main(String[] args, String param) {
+		System.out.println("Overload the main() method");
+	}
+	
+	public boolean equals(){
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		ClassSample sample = new ClassSample();
+//		sample.test();
+//		testSixties();
+		//
+//		sample.go();
+//		sample.go1();
+//		sample.go2();
+		
+		// TODO:
+//		testInteger();
+//		testOverload();
+		logger.debug("0^0 = " + (0^0));
+		logger.debug("1^2 = " + (1^2));
+		logger.debug("1^3 = " + (1^3));
+		logger.debug("2^3 = " + (2^3));
+		logger.debug("3^1 = " + (3^1));
+		logger.debug("43673435^353454656 = " + (43673435^353454656));
 	}
 
 }
