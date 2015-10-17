@@ -1,4 +1,4 @@
-package com.crabapple.thinkinjava.search;
+package com.crabapple.sample.search;
 
 import java.util.LinkedList;
 import java.util.List;

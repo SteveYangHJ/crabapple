@@ -1,4 +1,4 @@
-package com.crabapple.thinkinjava.sample;
+package com.crabapple.sample.collection;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.crabapple.thinkinjava.sample;
+package com.crabapple.sample.common;
 
 import java.util.StringTokenizer;
 
