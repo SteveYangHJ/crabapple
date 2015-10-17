@@ -1,14 +1,18 @@
 package com.crabapple.sample.applet;
 
-//在*.java文件中直接加入以下<applet>,然后就可以直接在命令行上
-//使用Appletviewer *.java   ---运行applet程序
-//<applet code=Greeting width=200 height=100></applet>
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * 在*.java文件中直接加入以下<applet/>, 然后就可以直接在命令行上运行applet程序
+ * command: Appletviewer *.java   ---
+ * html: <applet code="GreetingApplet" width=200 height=100></applet>
+ * @author SteveHJ
+ */
 @SuppressWarnings("serial")
-public class Greeting extends JApplet implements ActionListener {
+public class GreetingApplet extends JApplet implements ActionListener {
 	private JTextField txtInputName;
 	private JLabel lblOutput;
 	private JButton btnGreet;
@@ -43,7 +47,7 @@ public class Greeting extends JApplet implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		JApplet app = new Greeting();
+		JApplet app = new GreetingApplet();
 		JFrame frame = new JFrame("app");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

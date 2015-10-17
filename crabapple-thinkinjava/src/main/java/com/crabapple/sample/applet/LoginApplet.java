@@ -13,22 +13,23 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Login {
+public class LoginApplet {
 	public static void main(String args[]) {
-		LoginFrm frame = new LoginFrm();
+		LoginFrame frame = new LoginFrame();
 	}
 }
 
-class LoginFrm extends JFrame implements ActionListener {
-	JLabel nameLabel = new JLabel("用户名：");
-	JLabel pwdLabel = new JLabel("密码：");
+class LoginFrame extends JFrame implements ActionListener {
+	private static final long serialVersionUID = -479784838553603468L;
+	JLabel nameLabel = new JLabel("UserName：");
+	JLabel pwdLabel = new JLabel("Password：");
 	JTextField name = new JTextField(10);
 	JPasswordField password = new JPasswordField(10);
-	JButton butnSure = new JButton("确定");
-	JButton butnCancel = new JButton("取消");
+	JButton butnSure = new JButton("Confirm");
+	JButton butnCancel = new JButton("Cancel");
 
-	public LoginFrm() {
-		super("登陆");
+	public LoginFrame() {
+		super("Login");
 		setBounds(500, 200, 280, 220);
 		setResizable(false);
 		setVisible(true);
@@ -48,34 +49,35 @@ class LoginFrm extends JFrame implements ActionListener {
 		butnSure.addActionListener(this);
 		butnCancel.addActionListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		validate();// 刷新
+		validate();
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == butnSure) {
-			System.out.println("用户名：" + name.getText());
-			System.out.println("密码：" + name.getText());
+			System.out.println("UserName:" + name.getText());
+			System.out.println("Password:" + name.getText());
 			if ("admin".equals(name.getText().trim())
 					&& "123".equals(password.getText().trim())) {
 				this.dispose();
-				new MainFrm("用户界面", name.getText().trim(), password.getText()
+				new MainFrame("MainFrame", name.getText().trim(), password.getText()
 						.trim());
 			} else {
-				JOptionPane.showMessageDialog(this, "用户不存在");
+				JOptionPane.showMessageDialog(this, "WARNING: User isn't exist!");
 			}
 		} else if (e.getSource() == butnCancel) {
 			System.exit(1);
 		}
 	}
 
-	class MainFrm extends JFrame {
+	class MainFrame extends JFrame {
+		private static final long serialVersionUID = 2151838650419624973L;
 		private JLabel info;
 
-		public MainFrm(String s, String name, String password) {
+		public MainFrame(String s, String name, String password) {
 			super(s);
 			setBounds(400, 200, 500, 400);
 			setLayout(new FlowLayout());
-			info = new JLabel("登陆成功，用户名：" + name + "，密码：" + password);
+			info = new JLabel("Login Successfully! UserName:" + name + ", Password:" + password);
 			add(info);
 			setVisible(true);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
