@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax Test</title>
+	<!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="../css/bootstrap-3.2.0.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../css/bootstrap-theme-3.2.0.css">
+	<link rel="stylesheet" type="text/css" media="all" href="../css/sample.css">
+	<!-- JS -->
+ 	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-3.2.0.min.js"></script>
+
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div class="header">
+	</div>
+	<div class="left">
+	</div>
+	<div class="container">
+		
+		
+	</div>
+	<div class="footer">
+	</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {  
+});
+function onLoad(){
+	var iframe = document.getElementById('iframe1');
+	var window = iframe.contentWindow; // 能够获取到iframe的window对象
+	var doc = window.document; // 但是无法获取该window对象的属性和方法
+	var name = window.name;
+	console.log('onLoad()');
+}
+(function(){
+	var a = b = 5;
+})();
+console.log(b);
+</script>
+</html>
