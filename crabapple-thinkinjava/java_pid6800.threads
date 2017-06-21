@@ -1,0 +1,50 @@
+Thread 0x33169be0
+
+  locals:
+
+Thread 0x33169c48
+
+  locals:
+
+Thread 0x33169cb0
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.ref.ReferenceQueue.remove(J)Ljava/lang/ref/Reference; (ReferenceQueue.java:135)
+  at java.lang.ref.ReferenceQueue.remove()Ljava/lang/ref/Reference; (ReferenceQueue.java:151)
+  at java.lang.ref.Finalizer$FinalizerThread.run()V (Finalizer.java:209)
+
+  locals:
+    objectId=0x33169d20, line=1
+    objectId=0x33169d18, line=1
+    objectId=0x33169d20, line=2
+    objectId=0x33169cb0, line=3
+    objectId=0x33169d38, line=3
+
+Thread 0x33169d40
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.Object.wait()V (Object.java:503)
+  at java.lang.ref.Reference$ReferenceHandler.run()V (Reference.java:133)
+
+  locals:
+    objectId=0x33169da8, line=1
+    objectId=0x33169d40, line=2
+    objectId=0x33169da8, line=2
+
+Thread 0x33169ef0
+  at java.lang.OutOfMemoryError.<init>()V (OutOfMemoryError.java:48)
+  at java.util.Arrays.copyOf([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object; (Arrays.java:2245)
+  at java.util.Arrays.copyOf([Ljava/lang/Object;I)[Ljava/lang/Object; (Arrays.java:2219)
+  at java.util.ArrayList.grow(I)V (ArrayList.java:242)
+  at java.util.ArrayList.ensureExplicitCapacity(I)V (ArrayList.java:216)
+  at java.util.ArrayList.ensureCapacityInternal(I)V (ArrayList.java:208)
+  at java.util.ArrayList.add(Ljava/lang/Object;)Z (ArrayList.java:440)
+  at com.crabapple.sample.vm.HeapOOM.main([Ljava/lang/String;)V (HeapOOM.java:32)
+
+  locals:
+    objectId=0x33699ff0, line=1
+    objectId=0x38bc1c38, line=1
+    objectId=0x33699ff0, line=2
+    objectId=0x33169db0, line=3
+    objectId=0x33169db0, line=6
+    objectId=0x32a70788, line=6
+    objectId=0x33169db0, line=7
+

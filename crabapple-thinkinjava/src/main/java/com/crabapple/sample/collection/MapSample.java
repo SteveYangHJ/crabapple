@@ -10,6 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.Logger;
 
+import sun.misc.Hashing;
+
 
 
 public class MapSample {
@@ -97,7 +99,7 @@ public class MapSample {
 	 final static int hash(Object k) {
         int h = 0;
         if (0 != h && k instanceof String) {
-            return sun.misc.Hashing.stringHash32((String) k);
+            return Hashing.stringHash32((String) k);
         }
 
         h ^= k.hashCode();
