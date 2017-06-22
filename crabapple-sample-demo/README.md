@@ -28,7 +28,7 @@ IDE: Eclispe, JRE: JDK1.7, WEB Container: Tocmat 7.0.35
 * Run as -> Run on Server (Here, you need define the new server manually, find Apache->Tomcat, chsooe the corresponding version, also you may need configure the Server Running Environments (jre configure in eclispe))
 > Note the Port of Tomcat Server
 * If the server started, and running, open your browser for these url for testing: 
-http://localhost:8080/crabapple-sample-demo/pages/register.jsp
-http://localhost:8080/crabapple-sample-demo/404.jsp
-http://localhost:8080/crabapple-sample-demo/register
-http://localhost:8080/crabapple-sample-demo/register2
+- http://localhost:8080/crabapple-sample-demo/pages/register.jsp
+- http://localhost:8080/crabapple-sample-demo/404.jsp
+- http://localhost:8080/crabapple-sample-demo/register
+- http://localhost:8080/crabapple-sample-demo/register2
